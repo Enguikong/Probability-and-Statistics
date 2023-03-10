@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 1)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{(P42，习题11)}
+        \begin{enumerate}
+            \item []
+            \item [(1)]基本事件共有$|\Omega |=\displaystyle{\binom{52}{10}}$个.
+            \item [(1)]有1种花色:基本事件有$\displaystyle{\binom{4}{1} \binom{13}{10}=4 \binom{13}{10}}$个.
+            \item [(2)]有2种花色:基本事件有$\displaystyle{\binom{4}{2} \sum\limits_{i=1}^{9} \binom{13}{i} \binom{13}{10-i}=6 \left[\binom{26}{10}-2 \binom{13}{10}\right]}$个.
+            \item [(3)]有3种花色:基本事件有
+            \begin{align*}
+                \binom{4}{3} \sum\limits_{i=1}^{8} \binom{13}{i} \left[\sum\limits_{j=1}^{9-i} \binom{13}{j} \binom{13}{10-i-j}\right]
+                = & 4 \sum\limits_{i=1}^{8} \binom{13}{i} \left( \binom{26}{10-i} - 2 \binom{13}{10-i} \right)\\
+                = & 4 \sum\limits_{i=1}^{8} \left[\binom{13}{i}\binom{26}{10-i} - 2 \binom{13}{i} \binom{13}{10-i}  \right] \\
+                = & 4 \left[\binom{39}{10}-3\binom{26}{10}+3\binom{13}{10}\right]
+            \end{align*}
+        \end{enumerate}
+        即:
+        \begin{align*}
+            \mathbb{P} (A)&=1-\displaystyle{\frac{\displaystyle{4 \binom{39}{10}-6 \binom{26}{10}+4 \binom{13}{10}}}{\displaystyle{\binom{52}{10}}}}\\
+            &=1-\displaystyle{\frac{4\times 39 \times \cdots \times 30 -6\times 26 \times \cdots \times 17+4\times 13 \times \cdots \times 4}{52\times \cdots \times 43}}\\
+            &\approx 0.8413
+        \end{align*}
+
+\section{(P42，习题12)}
+        \begin{enumerate}
+            \item []记胜为+,负为-.记甲在三局两胜制中胜利为事件A,甲在五局三胜制游戏中胜利为事件B.
+            \item [(1)]三局两胜制 (甲胜情况:+++,++-,+-+,-++)
+            \begin{enumerate}
+                \item [(a)]甲:+++ \[\mathbb{P}(a)=p^3.\]
+                \item [(b)]甲:++- \[\mathbb{P}(b)=p^2 (1-p).\]
+                \item [(c)]甲:+-+ \[\mathbb{P}(c)=p(1-p)p=p^2 (1-p).\]
+                \item [(d)]甲:-++ \[\mathbb{P}(d)=(1-p)p^2.\]
+            \end{enumerate}
+            $\mathbb{P}(A)=\mathbb{P}(a)+\mathbb{P}(b)+\mathbb{P}(c)+\mathbb{P}(d)=p^2(3-2p)$.
+            \item [(2)]五局三胜制 (甲胜情况:5+,4+,3+)
+            \begin{enumerate}
+                \item [(a)]甲:5+ \[\mathbb{P}(a)=\binom{5}{5} \ p^5=p^5.\]
+                \item [(b)]甲:4+ \[\mathbb{P}(b)=\binom{4}{5} \ p^4 (1-p)=5 p^4(1-p).\]
+                \item [(c)]甲:3+ \[\mathbb{P}(c)=\binom{3}{5} \ p^3 {(1-p)}^2 =10 p^3{(1-p)}^2.\]
+            \end{enumerate}
+            \[
+              \begin{aligned}
+                \mathbb{P}(B)
+                = & \mathbb{P}(a)+\mathbb{P}(b)+\mathbb{P}(c)\\
+                = & p^3[p^2+ 5p - 5p^2+ 10(p^2-2p+1)]\\
+                = & p^3(6p^2-15p+10)
+              \end{aligned}  
+              \qquad
+              \begin{aligned}
+                f(p)
+                = & \mathbb{P}(B)-\mathbb{P}(A)\\
+                = & p^3(6p^2-15p+10)-p^2(3-2p)\\
+                = & 3p^2(2p^3-5p^2+4p-1)
+              \end{aligned}
+            \]
+            则
+            \[
+                f(0)=f(0.5)=f(1)=0 \Rightarrow f(p)=3p^{2}(2p-1){(p-1)}^2>0,\mathbb{P}(B)>\mathbb{P}(A)
+            \]
+
+            即五局三胜制对甲更有利.
+        \end{enumerate}
+
+\section{(P42，习题14)}
+\begin{enumerate}
+    \item []$|\Omega |= P_N^n = n! \cdot C_N^n $.分别用 $A, B, C$ 表示上述 $(1)-(3)$ 各事件.
+    \item [(1)]即等价于将$n$个人和$N-n$个座位排成一排，而且每个人不相邻
+    \[
+        |A| = n! \cdot C_{N-n+1}^{n}  
+        \ \Rightarrow\ 
+        P(A) = 
+        \displaystyle{
+            \frac{|A|}{|\Omega|}
+            =\frac{C_{N-n+1}^{n}}{C_{N}^{n}}
+        }.
+    \]
+    \item [(2)]将两个人视为一对，则等价于将$n/2$对和$N-n$个座位排成一排，而且每对不相邻.
+    若$2|n$，有
+    \[
+        |B|= n! \cdot C_{N-n+1}^{n/2}
+        \ \Rightarrow\ 
+        P(B) = 
+        \displaystyle{
+            \frac{|B|}{|\Omega|}
+            =\frac{C_{N-n+1}^{n/2}}{C_{N}^{n}}
+        }.
+    \]
+    \item [(3)]
+    \[
+        |C|=
+        \begin{cases}
+            \ 2^n \cdot n! \cdot C_{N/2}^{n}  \quad &(N\equiv 0(\bmod 2))\\
+            \ n\cdot 2^{n-1}\cdot (n-1)! \cdot C_{(N-1)/2}^{n-1} + 2^{n} \cdot n! \cdot C_{(N-1)/2}^{n} \quad &(N\equiv 1(\bmod 2))
+        \end{cases}
+    \]
+    \[
+        \Rightarrow\ 
+        P(C)=
+        \begin{cases}
+            \ \displaystyle{\frac{2^n \cdot C_{N/2}^{n}}{C_{N}^{n}}}   \quad &(N\equiv 0(\bmod 2))\\
+            \\
+            \ \displaystyle{\frac{2^{n-1}\cdot C_{(N-1)/2}^{n-1} + 2^{n} \cdot C_{(N-1)/2}^{n}}{C_{N}^{n}}}  \quad &(N\equiv 1(\bmod 2))
+        \end{cases}
+    \]
+\end{enumerate}
+
+\section{(P42，习题18)}
+\begin{enumerate}
+    \item []设甲到达时距$3$点$x$分钟，乙到达时距$3$点$y$分钟，以第$i$班公交车在$3$点后$t_i\ (t_0=0)$分钟到达.
+    \[
+        \mbox{甲乙均上了第$i$班车}
+        \ \Leftrightarrow\ 
+        t_{i-1} < x,y \leq t_{i},\ (i=1,2,3,4)
+    \]
+    如图
+    \item[]
+\end{enumerate}
+    \begin{figure*}[htbp]
+        \centering
+        \includegraphics*[scale=0.1]{T18.png}
+    \end{figure*}
+
+    \[
+        P=
+        \displaystyle{
+            \frac{S_{\mbox{蓝}}}{S_{\mbox{总}}}
+            =
+            \frac{4\times 15 \times 15}{60\times 60}
+            =
+            \frac{1}{4}
+        }
+    \]
+    即概率为$\frac{1}{4}$.
+
+\section{(P42，习题22)}
+\begin{enumerate}
+    \item []除始发站外有11站，$|\Omega |= 11^8 $.分别用 $A, B, C$ 表示上述 $(1)-(3)$ 各事件.
+    \item [(1)]
+    \[
+        |A|=8!\cdot C_{11}^{8}
+        \ \Rightarrow\ 
+        P(A)=
+        \displaystyle{
+            \frac{|A|}{|\Omega|}
+            =\frac{8! \cdot C_{11}^{8} }{11^8}
+        }  
+    \]
+    \item [(2)]
+    \[
+        |B|=C_{11}^{1}
+        \ \Rightarrow\ 
+        P(B)=
+        \displaystyle{
+            \frac{|B|}{|\Omega|}
+            =\frac{1}{11^7}
+        }  
+    \]
+    \item [(3)]
+    \[
+        |C|= C_{11}^{3} \cdot 5! \cdot C_{8}^{5}
+        \ \Rightarrow\ 
+        P(C)=
+        \displaystyle{
+            \frac{|C|}{|\Omega|}
+            =\frac{5! \cdot C_{11}^{3} \cdot C_{8}^{5}}{11^8}
+        }  
+    \]
+\end{enumerate}
+
+\end{document}
