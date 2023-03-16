@@ -9,9 +9,44 @@
 \maketitle
 \section{}  %1
 \begin{enumerate}
-    \item []设挑出第一箱为事件A，挑出第二箱为事件B
+    \item []设挑出第一箱为事件$A$，挑出第二箱为事件$B$，第$i$次取到为一等品为事件$M_i$.
     \item [(1)]
+    \begin{align*}
+        P(M_1) 
+        & =
+        P(A M_1) + P(B M_1)\\
+        & =
+        P(M_1 | A) \cdot P(A) + P(M_1 | B) \cdot P(B)\\
+        & =
+        \frac{10}{50}\cdot \frac{1}{2} + \frac{18}{30}\cdot \frac{1}{2}\\
+        & =
+        \frac{1}{10} + \frac{3}{10}\\
+        & =
+        \frac{2}{5}.
+    \end{align*}
     \item [(2)]
+    \begin{align*}
+        P(M_1 M_2) 
+        & =
+        P(A M_1 M_2 ) + P(B M_1 M_2)\\
+        & =
+        P(M_1 M_2 | A) \cdot P(A) + P(M_1 M_2 | B) \cdot P(B)\\
+        & =
+        \frac{10}{50}\cdot \frac{9}{49} \cdot \frac{1}{2} + \frac{18}{30}\cdot \frac{17}{29} \cdot \frac{1}{2}\\
+        & =
+        \frac{9}{490} + \frac{51}{290}\\
+        & =
+        \frac{276}{1421}.
+    \end{align*}
+    \[
+        P(M_2 | M_1)
+        =
+        \displaystyle{\frac{P(M_1 M_2)}{P(M_1)}}
+        =
+        \displaystyle{\frac{276}{1421} \cdot \frac{5}{2}}
+        =
+        \displaystyle{\frac{690}{1421}}.
+    \]
 \end{enumerate}
 
 \section{}  %2
@@ -75,7 +110,19 @@
 \end{align*}
 
 \section{}  %5
-
-
+\begin{enumerate}
+    \item []掷一个$6$面上写着$1~6$的骰子，定义:
+    \[
+        A=\{\mbox{掷到1或2}\},\ 
+        B=\{\mbox{掷到2或3}\},\ 
+        C=\{\mbox{掷到3或4}\}
+    \]
+    \item []有：
+    \[
+        \mathbb{P}(A|B)=\frac{\mathbb{P}(AB)}{\mathbb{P}(B)}=\frac{1}{2}>\mathbb{P}(A);\quad
+        \mathbb{P}(B|C)=\frac{\mathbb{P}(BC)}{\mathbb{P}(C)}=\frac{1}{2}>\mathbb{P}(B);\quad
+        \mathbb{P}(A|C)=\frac{\mathbb{P}(AC)}{\mathbb{P}(C)}=0<\mathbb{P}(A).
+    \]
+\end{enumerate}
 
 \end{document}
