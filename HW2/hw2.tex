@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 2)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{}  %1
+\begin{enumerate}
+    \item []设挑出第一箱为事件A，挑出第二箱为事件B
+    \item [(1)]
+    \item [(2)]
+\end{enumerate}
+
+\section{}  %2
+\begin{enumerate}
+    \item []设方程有实根为事件$M$，方程有重根为事件$N$，$B=i$记为$B_i$，$C=i$记为$C_i$.
+    \item [(1)]$M\Leftrightarrow B^2-4C\geq 0$.
+    \begin{align*}
+        P(M)
+        & = 
+        P(B_2 C_1) + P(B_3 (C_1+C_2)) + P(B_4 (C_1 + C_2 + C_3 + C_4))+P(B_5)+P(B_6)\\
+        & =
+        \frac{1}{6}\times \frac{1}{6} + \frac{1}{6}\times \frac{2}{6} +
+        \frac{1}{6}\times \frac{4}{6} + \frac{1}{6} + \frac{1}{6} \\
+        & =
+        \frac{1}{36} + \frac{2}{36} + \frac{4}{36} + \frac{1}{3}\\
+        & =
+        \frac{19}{36}.
+    \end{align*}
+    \item [(2)]$N\Leftrightarrow B^2 = 4C$.
+    \begin{align*}
+        P(N)
+        & =
+        P(B_2 C_1) + P(B_4 C_4)\\
+        & =
+        \frac{1}{6}\times\frac{1}{6} + \frac{1}{6}\times \frac{1}{6}\\
+        & =
+        \frac{1}{36} + \frac{1}{36}\\
+        & =
+        \frac{1}{18}.
+    \end{align*}
+\end{enumerate}
+
+\section{}  %3
+\begin{proof}
+    \begin{align*}
+        P(A|B)=P(A|B^{C})
+        \Leftrightarrow &
+        \frac{P(AB)}{P(B)} = \frac{P(AB^C)}{P(B^{C})}\\
+        \Leftrightarrow &
+        P(AB)\cdot P(B^{C}) = P(AB^{C})\cdot P(B)\\
+        \Leftrightarrow &
+        P(AB)\cdot (1-P(B)) = P(AB^{C})\cdot P(B)\\
+        \Leftrightarrow &
+        P(AB) = P(B)\cdot \left[P(AB)+P(AB^{C})\right]\\
+        \Leftrightarrow &
+        P(AB) = P(B)\cdot P(A)\cdot \left[P(B)+P(B^{C})\right]\\
+        \Leftrightarrow &
+        P(AB) = P(B)\cdot P(A).
+    \end{align*}
+\end{proof}
+
+\section{}  %4
+\begin{align*}
+    P(A\cup B\cup C)
+    & = 
+    P(A)+P(B)+P(C)-\left(P(AB)+P(BC)+P(AC)\right)+P(AC\cap B)\\
+    & =
+    1-(\frac{1}{8}+\frac{1}{8}+0)+0\\
+    & =
+    \frac{3}{4}.
+\end{align*}
+
+\section{}  %5
+
+
+
+\end{document}
