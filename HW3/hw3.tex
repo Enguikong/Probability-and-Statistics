@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 3)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{(P45 第37题)}  %1
+\begin{enumerate}
+    \item [(1)]
+    \[
+        P(A)=
+        P(AC)+P(A\overline{C})
+        =P(A|C)\cdot P(C) + P(A\overline{C})\cdot P(\overline{C})
+        =0.55 .
+    \]
+    \item [(2)]
+    \[
+        P(B)=  
+        P(BC)+P(B\overline{C})
+        =P(B|C)\cdot P(C) + P(B\overline{C})\cdot P(\overline{C})
+        =0.5 .
+    \]
+    \item [(3)]
+    \begin{align*}
+        P(AB)
+        & =
+        P(ABC) + P(AB\overline{C})\\
+        & =
+        P(AB|C)\cdot P(C) + P(AB\overline{AB|\overline{C}})\cdot P(\overline{C})\\
+        & =
+        P(A|C)\cdot P(B|C)\cdot P(C) + P(A|\overline{C})\cdot P(B|\overline{C})\cdot P(\overline{C})\\\
+        & =
+        0.9\times 0.9\times 0.5 + 0.2\times 0.2 \times 0.5\\
+        & =
+        0.425 
+    \end{align*}
+    \item [(4)]
+    \begin{proof}
+        \[
+            P(A)P(B)=
+            0.55\times 0.5 
+            =0.275
+            \neq P(AB).    
+        \]
+    \end{proof}
+\end{enumerate}
+
+\section{(P45 第38题)}  %2
+\begin{enumerate}
+    \item []设第一次射中为事件$A$，第二次射中为事件$B$，第三次射中为事件$C$.
+    \item [(1)]设恰有一次射中为事件$M$
+    \begin{align*}
+        P(M)
+        & = 
+        P(A \overline{B} \overline{C})+ P(\overline{A} B \overline{C})+ P(\overline{A}\overline{B}C)\\
+        & =
+        0.5\times 0.4\times 0.2 + 0.5\times 0.6\times 0.2 + 0.5\times 0.4\times 0.8\\
+        & =
+        0.26.
+    \end{align*}
+    \item [(2)]设至少有一次射中为事件$N$
+    \[
+        P(N) = 1- P(\overline{A} \overline{B} \overline{C})
+        = 0.96.
+    \]
+\end{enumerate}
+
+\section{(P81 第4题)}  %3
+\begin{enumerate}
+    \item []设营收为$X$万元，由题意可得$X$取值有$10$，$5$，$0$，$-2$，一天内发生故障的概率$p=0.2$.
+    \[
+        P(X=10)
+        =\binom{5}{0} {p}^{0} {(1-p)}^{5} 
+        =\frac{1024}{3125}.
+    \]    
+    \[
+        P(X=5)
+        =\binom{5}{1} {p}^{1} {(1-p)}^{4} 
+        =\frac{256}{625}.   
+    \]
+    \[
+        P(X=0)
+        =\binom{5}{2} {p}^{2} {(1-p)}^{3} 
+        =\frac{128}{625}   
+    \]
+    \[
+        P(X=-2)
+        =1-P(X=10)-P(X=5)-P(X=0)  
+        =\frac{181}{3125}.  
+    \]    
+    \item []分布律如图
+    \begin{table}[!ht]
+        \centering
+        \begin{tabular}{c|cccc}
+            X & 10 & 5 & 0 & -2 \\ \hline
+            P & $\displaystyle{\frac{1024}{3125}}$ & $\displaystyle{\frac{256}{625}}$ & $\displaystyle{\frac{128}{625}}$ & $\displaystyle{\frac{181}{3125}}$ 
+        \end{tabular}
+    \end{table}
+\end{enumerate}
+
+\section{(P81 第8题)}  %4
+\begin{enumerate}
+    \item [(1)]
+    \[
+        P(X\geq 1)=1-P(X=1)-P(X=0)
+        =1-20 \cdot \binom{20}{1}    
+    \]
+    \item [(2)]
+\end{enumerate}
+
+\section{(P81 第9题)}  %5
+
+
+
+\end{document}
