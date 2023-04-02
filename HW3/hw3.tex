@@ -104,15 +104,66 @@
 \section{(P81 第8题)}  %4
 \begin{enumerate}
     \item [(1)]
+    \begin{align*}
+        P(X\geq 1)
+        & =
+        1-P(X=1)-P(X=0)\\
+        & =
+        1-20 \cdot \binom{20}{1} {\left(\frac{1}{5}\right)}^{1} {\left(\frac{4}{5}\right)}^{19}
+        -\binom{20}{0} {\left(\frac{1}{5}\right)}^{0} {\left(\frac{4}{5}\right)}^{20}\\
+        & =
+        1-\displaystyle{\frac{4^{20}}{5^{19}}}-\displaystyle{\frac{4^{20}}{5^{20}}} \\
+        & =
+        \displaystyle{\frac{5^{20}-6\times 4^{20}}{5^{20}}}.
+    \end{align*}
+    \item [(2)]设$X=k$时概率最大，则有
     \[
-        P(X\geq 1)=1-P(X=1)-P(X=0)
-        =1-20 \cdot \binom{20}{1}    
+        \begin{cases}
+            P(X=k)\geq P(X=k+1)\\
+            P(X=k)\geq P(X=k-1)
+        \end{cases}
+        \ \Rightarrow\ 
+        \begin{cases}
+            \displaystyle{\binom{20}{k} {(1-p)}^{20-k} p^{k} \geq \binom{20}{k+1} {(1-p)}^{19-k} p^{k+1}}\\
+            \\
+            \displaystyle{\binom{20}{k} {(1-p)}^{20-k} p^{k} \geq \binom{20}{k-1} {(1-p)}^{21-k} p^{k-1}}
+        \end{cases}
     \]
-    \item [(2)]
+    解得
+    \[
+        21p -1 \leq k \leq 21p
+        \ \Rightarrow\ 
+        3.2 \leq k \leq 4.2
+        \xrightarrow{k\in \mathbb{N}}   
+        k=4. 
+    \]
+    即$X=4$时概率最大.
 \end{enumerate}
 
 \section{(P81 第9题)}  %5
-
+\begin{enumerate}
+    \item []设$A$出现的次数为$X$，则$X\in \{0,1,2,3,4\}$.
+    \item [(1)]
+    \begin{align*}
+        P(B)
+        & = 
+        P(B|X=1) \cdot P(X=1) + P(B|X\geq 2) \cdot P(X\geq 2)\\
+        & =
+        0.6\cdot C_4^1 \cdot p^{1} {(1-p)}^{3} + 1\cdot \left[1- C_4^1 \cdot p^{1} {(1-p)}^{3} - C_4^0 \cdot p^{0} {(1-p)}^{4} \right]\\
+        & =
+        \displaystyle{\frac{29763}{50000}}.
+    \end{align*}
+    \item [(2)]
+    \[
+        P( X=1 | B )
+        =
+        \displaystyle{\frac{P((X=1)\cap B)}{P(B)}}
+        =
+        \displaystyle{\frac{0.6\cdot C_4^1 \cdot p^{1} {(1-p)}^{3}}{29763/ 50000}}
+        =
+        \displaystyle{\frac{1372}{3307}}.
+    \]
+\end{enumerate}
 
 
 \end{document}
