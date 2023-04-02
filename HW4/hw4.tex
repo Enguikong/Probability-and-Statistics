@@ -3,11 +3,60 @@
 \usepackage{listings,xcolor,diagbox}
 \geometry{a4paper,scale=0.8}  
 \renewcommand\arraystretch{2}
-\title{概统作业 (Week 3)}
+\title{概统作业 (Week 4)}
 \author{PB20000113孔浩宇}
 \begin{document}
 \maketitle
 \section{(P82 第12题)}  %1
+\begin{enumerate}
+    \item [(1)]记一次产卵数量为$X$.
+    \[
+        P(Y=k) 
+        =
+        \sum\limits_{n=k}^{+\infty} P(X=n , Y=k) 
+        =
+        \sum\limits_{n=k}^{+\infty} P(X=n) P(Y=k \mid X=n)
+    \]
+    又
+    \[
+        P(X=n) P(Y=k \mid X=n)
+        =
+        \displaystyle{\frac{\lambda^n}{n!}} e^{-\lambda}\cdot
+        \binom{n}{k} \cdot p^{k} {(1-p)}^{n-k}
+        \quad (n\geq k)
+    \]
+    故
+    \begin{align*}
+        P(Y=k)
+        &=
+        \sum\limits_{n=k}^{+\infty} 
+        \displaystyle{\frac{\lambda^n}{n!}} e^{-\lambda}\cdot
+        \displaystyle{\frac{n!\cdot p^{k}}{k!\cdot {(n-k)!}}} \cdot  {(1-p)}^{n-k} \\
+        &=
+        \displaystyle{\frac{\lambda^k \cdot p^{k}}{k!}} e^{-\lambda}\cdot
+        \sum\limits_{n=k}^{+\infty} 
+        \displaystyle{\frac{{(\lambda -\lambda p)}^{n-k}}{{(n-k)!}}}  \\
+        &=
+        \displaystyle{\frac{\lambda^k \cdot p^{k}}{k!}} e^{-\lambda}\cdot
+        e^{\lambda - \lambda p}\\
+        &=
+        \displaystyle{\frac{\lambda^k \cdot p^{k}}{k!}} e^{-\lambda p} .
+    \end{align*}
+    同理有
+    \[
+        P(Z=k)
+        =
+        \displaystyle{\frac{\lambda^k \cdot {(1-p)}^{k}}{k!}} e^{-\lambda (1-p)} .
+    \]
+    即$Y$服从参数为$\lambda p$的泊松分布，$Z$服从参数为$\lambda (1-p)$的泊松分布.
+    \item [(2)]
+    \[
+        P(Y=m,Z=n) 
+        =
+        \displaystyle{\frac{\lambda^{m+n}}{(m+n)!}} e^{-\lambda}\cdot
+        \frac{}{} p^{m} {(1-p)}^{n}
+    \]
+\end{enumerate}
 
 \section{(P83 第19题)}  %2
 
