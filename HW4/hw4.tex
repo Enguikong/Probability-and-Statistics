@@ -54,19 +54,114 @@
         P(Y=m,Z=n) 
         =
         \displaystyle{\frac{\lambda^{m+n}}{(m+n)!}} e^{-\lambda}\cdot
-        \frac{}{} p^{m} {(1-p)}^{n}
+        \frac{{(m+n)!}}{m!\cdot n!} p^{m} {(1-p)}^{n}
+        =
+        \frac{\lambda^{m+n}\cdot p^{m} {(1-p)}^{n} }{m!\cdot n!}\cdot e^{-\lambda} .
     \]
+    \[
+        P(Y=m) P(Z=n)
+        =
+        \frac{\lambda^m \cdot p^{m}}{m!} e^{-\lambda p} 
+        \cdot 
+        \frac{\lambda^n \cdot {(1-p)}^{n}}{n!} e^{-\lambda (1-p)}
+        =
+        \frac{\lambda^{m+n}\cdot p^{m} {(1-p)}^{n} }{m!\cdot n!}\cdot e^{-\lambda} .
+    \]
+    $P(Y=m,Z=n)=P(Y=m)P(Z=n)$，故$Y,Z$相互独立.
 \end{enumerate}
 
 \section{(P83 第19题)}  %2
+\begin{enumerate}
+    \item []由$F(x)$的右连续性有
+    \[
+        \lim\limits_{x\to -1+} F(x) = F(-1)
+        \ \Rightarrow\ 
+        -a+b=\frac{1}{8} .    
+    \]
+    \item []由于
+    \[
+        F(1) = P(X\leq 1) = P(X<1) + P(X=1)    
+    \]
+    且$P(X<1) =\lim\limits_{x\to 1-} F(x)=a+b$，可得
+    \[
+        a+b+\frac{1}{4}=1    
+    \]
+    联立以上方程解得
+    \[
+        a=\frac{5}{16},\ b=\frac{7}{16}.    
+    \]
+\end{enumerate}
 
 \section{(P83 第21题)}  %3
+\begin{enumerate}
+    \item [(1)]
+    \[
+        \int_{-\infty}^{+\infty} \frac{a}{1+x^2} \,dx =1 
+        \ \Leftrightarrow\
+        a\cdot \arctan x \mid _{-\infty}^{+\infty} =1
+        \ \Leftrightarrow\
+        a\cdot (\frac{\pi}{2} - (-\frac{\pi}{2})) =1
+        \ \Leftrightarrow\ 
+        a=\frac{1}{\pi}.
+    \]
+    即$a=\displaystyle{\frac{1}{\pi}}$.
+    \item [(2)]
+    \[
+        F(x)= \int_{-\infty}^{x} \frac{1}{\pi(1+t^2)} \,dt =
+        \frac{1}{\pi}(\arctan(x)+\frac{\pi}{2}).
+    \]
+    \item [(3)]
+    \[
+        P(|X|<1)=P(-1<X<1)
+        =F(1)-F(-1)
+        =\frac{1}{\pi}[\arctan(1)- \arctan(-1)]
+        =\frac{1}{2}.  
+    \]
+\end{enumerate}
 
 \section{(P84 第26题)}  %4
+\begin{enumerate}
+    \item []单次观测到$x>2$的概率为
+    \[
+        p=P(X>2)=\displaystyle{\frac{4-2}{4-1}=\frac{2}{3}}.    
+    \]
+    \item []设三次独立观测中观测值大于2的次数为$Y$，则
+    \[
+        P(Y\geq 2)
+        =P(Y=2)+P(Y=3)
+        =3\cdot p^2 (1-p) + p^{3}
+        =\frac{20}{27} .
+    \]
+    即三次独立观测中至少两次观测值大于2的概率为$\displaystyle{\frac{20}{27}}$.
+\end{enumerate}
 
 \section{(P84 第28题)}  %5
+\begin{enumerate}
+    \item [(1)]设检修时间为$X$，$f(x)=e^{-X}\ (X>0)$.
+    \[
+        P(X> 2)
+        =1-P(X\leq 2)
+        =1- F(2)  
+        =e^{-2}.
+    \]
+    \item [(2)]
+    \[
+        P(X>4|X>2)=P(X>2)=e^{-2}.
+    \]
+\end{enumerate}
 
 \section{(P84 第29题)}  %6
-
+\begin{enumerate}
+    \item []单次等待时间超过10min的概率为
+    \[
+        p = P(X> 10) = 1-F(10) = e^{-2}.
+    \]
+    \item []设一个月内未接受服务而离开的次数为$Y$，则
+    \[
+        P(Y\geq 1) = 1- P(Y=0) = 1 - {(1-p)}^{5}
+        =1 - {(1-e^{-2})}^{5}
+        \approx 0.5167. 
+    \]
+\end{enumerate}
 
 \end{document}
