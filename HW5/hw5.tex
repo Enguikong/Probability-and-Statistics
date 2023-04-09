@@ -1,0 +1,217 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 5)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{(P84 第27题)}  %1
+\begin{proof}
+    \begin{enumerate}
+        \item []
+        \item [(1)]先证$\forall\ x=\frac{n}{m} \in (0,1)$，有$F(x)=x$.不妨取正整数$n<m$.
+        \[
+            F(1)-F(\frac{m-1}{m})=F(\frac{m-1}{m})-F(\frac{m-2}{m})=\cdots
+            =F(\frac{1}{m}) - F(0)    
+        \]
+        又
+        \[
+            \sum\limits_{i=1}^{m} F(\frac{i}{m})-F(\frac{i-1}{m})
+            =F(1)-F(0)=1 .
+            \ \Rightarrow\ 
+            F(\frac{1}{m})=\frac{1}{m} , F(\frac{n}{m})=\frac{n}{m}. 
+        \]
+        \item [(2)]再证$\forall\ x\in (0,1)$，有$F(x)=x$.
+        \begin{enumerate}
+            \item [(a)]若$x\in \mathbb{Q}$，有$m,n\in \mathbb{N}$，使$x=\frac{n}{m}$，由$(1)$可知成立.
+            \item [(b)]若$x\notin \mathbb{Q}$，则存在有理数列$\{Q_n\}$满足
+            \[
+                \lim\limits_{n\to +\infty} Q_n = x
+                \ \Rightarrow\ 
+                F(x)
+                = \lim\limits_{n\to +\infty} F(Q_n) 
+                = \lim\limits_{n\to +\infty} Q_n
+                = x.
+            \]
+        \end{enumerate}
+        综上可得
+        \[
+            F(x)=x.\ (0<x<1)
+            \ \Rightarrow\ 
+            f(x)= I_{(0,1)}(x).
+            \ \Rightarrow\ 
+            X\sim U(0,1).
+        \]
+    \end{enumerate}
+\end{proof}
+
+\section{(P85 第32题)}  %2
+\begin{enumerate}
+    \item [(1)]
+    \[
+        P(96\leq R \leq 104)=
+        \frac{104-96}{105-95}=0.8 . 
+    \]
+    即比例为$0.8$.
+    \item [(2)]取$X=\frac{R-100}{2} \sim N(0,1)$，则
+    \[
+        P(96\leq R \leq 104)=
+        P(-2\leq X \leq 2)=
+        2\Phi(2) -1=
+        0.9544.
+    \]
+\end{enumerate}
+
+\section{(P85 第31题)}  %3
+\begin{enumerate}
+    \item []取$Y=\frac{X-1}{2} \sim N(0,1)$.
+    \item [(1)]
+    \[
+        P(0\leq X\leq 4)=
+        P(-0.5 \leq Y\leq 1.5)=
+        \Phi(1.5)+\Phi(-0.5)-1=
+        0.6247.
+    \]
+    \vspace*{0.1cm}
+    \[
+        P(X>2.4)=
+        P(Y>0.7)=
+        1-\Phi(0.7)=
+        0.2420.
+    \]
+    \vspace*{0.1cm}
+    \[
+        P(|X|>2)=
+        2P(X>2)=
+        2P(Y>0.5)=
+        2(1-\Phi(0.5))=
+        0.6170.    
+    \]
+    \item [(2)]
+    \begin{align*}
+        P(X>c)=2P(X\leq c)
+        &\Leftrightarrow\ 
+        P(Y>\frac{c-1}{2})=2P(Y\leq \frac{c-1}{2}) \\
+        &\Leftrightarrow\ 
+        1-\Phi(\frac{c-1}{2})=2\Phi(\frac{c-1}{2}) \\
+        &\Leftrightarrow\ 
+        \Phi(\frac{c-1}{2})=\frac{1}{3},\ \Phi(\frac{1-c}{2})=\frac{2}{3} \\
+        &\Leftrightarrow\ 
+        c\approx 0.14.
+    \end{align*}
+\end{enumerate}
+
+\section{(P86 第49题)}  %4
+\begin{enumerate}
+    \item [(1)]
+    \[
+        F_1 (y)= 
+        P(Y\leq y)=  
+        P(\frac{1-X}{X}\leq y)=
+        \begin{cases}
+            \ 0 & (y<0)\\
+            \\
+            \displaystyle{\frac{y}{1+y}} & (y\geq 0)
+        \end{cases}   
+    \]
+    由$f_1(y) = F_1 '(y)$，有
+    \[
+        f_1 (y)=
+        \begin{cases}
+            \ 0 & (y<0)\\
+            \\
+            \displaystyle{\frac{1}{{(1+y)}^2}} & (y\geq 0)
+        \end{cases}  
+    \]
+    \item [(2)]
+    \[
+        F_2 (z)=
+        P(Z\leq z)=
+        P(XI_{(a,1]} (X) \leq z)=
+        \begin{cases}
+            \ 0 & (z<0)\\
+            \ a & (0\leq z <a)\\
+            \ z & (a\leq z \leq 1)\\
+            \ 1 & (z>1)
+        \end{cases} 
+    \]
+    $Z$不是连续型随机变量，故不存在密度函数.
+    \item [(3)]
+    \[
+        F_3 (w)=
+        P(W\leq w)=
+        P(X^2 + XI_{[0,b]}(X) \leq w)=
+        \begin{cases}
+            \ \quad 0 & (w<0)\\
+            \\
+            \ \displaystyle{\frac{\sqrt{4w+1}-1}{2}} & (0\leq w < b^2)\\
+            \\
+            \ \displaystyle{\frac{\sqrt{4w+1}-1}{2} + \sqrt{w}-b} & (b^2 \leq w < b^2 +b) \\
+            \\
+            \ \sqrt{w} & (b^2 + b \leq w \leq 1)\\
+            \\
+            \ \quad 1 & (w>1)
+        \end{cases}   
+    \]
+    由$f_3 (w) = F_3 '(w)$，有
+    \[
+        f_3 (w) = 
+        \begin{cases}
+            \ \displaystyle{\frac{1}{\sqrt{4w+1}}} & (0\leq w < b^2)\\
+            \\
+            \ \displaystyle{\frac{1}{\sqrt{4w+1}} + \frac{1}{2\sqrt{w}}} & (b^2 \leq w < b^2 +b)\\
+            \\
+            \ \displaystyle{\frac{1}{2\sqrt{w}}} & (b^2 + b \leq w \leq 1)\\
+            \\
+            \ \quad 0 & (w<0\mbox{或}w>1)
+        \end{cases}
+    \]
+\end{enumerate}
+
+\section{(P116 第2题)}  %5
+\begin{enumerate}
+    \item [(1)]
+    \[
+        P(X=1 | Z=0)=
+        \displaystyle{\frac{P(X=1,Z=0)}{P(Z=0)}}=
+        \displaystyle{\frac{2\times \frac{1}{6}\times \frac{2}{6}}{\frac{1}{2}\times \frac{1}{2} }}=
+        \displaystyle{\frac{4}{9}}.
+    \]
+    \item [(2)]$X=\{0,1,2\},\ Y=\{0,1,2\},\ X+Y\leq 2$.
+    \[
+        \begin{aligned}
+            P(X=0,Y=0) & = \frac{1}{2}\times \frac{1}{2} = \frac{1}{4}\\
+            P(X=0,Y=1) & = 2\times \frac{1}{3}\times \frac{1}{2} = \frac{1}{3}\\
+            P(X=0,Y=2) & = \frac{1}{3}\times \frac{1}{3} = \frac{1}{9}
+        \end{aligned}  
+        \qquad \qquad 
+        \begin{aligned}
+            P(X=1,Y=0) & = 2\times \frac{1}{6}\times \frac{1}{2} = \frac{1}{6}\\
+            P(X=1,Y=1) & = 2\times \frac{1}{6}\times \frac{1}{3} = \frac{1}{9} \\
+            P(X=2,Y=0) & = \frac{1}{6}\times \frac{1}{6} = \frac{1}{36}
+        \end{aligned}
+    \]
+    又$X+Y\leq 2$，故
+    \[
+        P(X=1,Y=2) = P(X=2,Y=1) = P(X=2,Y=2) = 0.    
+    \]
+    分布列如图
+    \[
+        \begin{tabular}{c|c|c|c}
+            \hline
+            \diagbox{X}{Y} & 0 & 1 & 2\\
+            \hline
+            0 & 1/4 & 1/3 & 1/9 \\
+            \hline
+            1 & 1/6 & 1/9 & 0 \\
+            \hline
+            2 & 1/36 & 0 & 0 \\
+            \hline
+        \end{tabular}
+    \]
+
+\end{enumerate}
+
+\end{document}
