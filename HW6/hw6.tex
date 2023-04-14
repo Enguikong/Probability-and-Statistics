@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 6)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{(P116 T6)}  %1
+\begin{enumerate}
+    \item [(1)]由题意可得$i,j \in \mathbb{N}^{*},\ 1\leq i < j $，有
+    \[
+        P(X=i, Y=j)=
+        \begin{cases}
+            p^2 {(1-p)}^{j-2}   \quad &(1\leq i < j)\\
+            \\
+            0   &\mbox{其他}
+        \end{cases}.
+    \]
+    \item [(2)]
+    \[
+        P(X=i) = p {(1-p)}^{i-1}.
+        \quad (i\in \mathbb{N}^{*})
+    \]
+    \[
+        P(Y=j) = (j-1) \cdot p^{2} {(1-p)}^{j-2} .  
+        \quad (j\in \mathbb{N}^{*},\ j\geq 2)
+    \]
+\end{enumerate}
+
+\section{(P116 T10)}  %2
+\begin{enumerate}
+    \item [(1)]
+    \[
+        F(x,y) =  \int_{-\infty}^{x} du \int_{-\infty}^{y} dv \cos{u} \cos{v}
+        = \begin{cases}
+            \ 0,    & (x\leq 0\mbox{或}\ y\leq 0)\\
+            \\
+            \ \sin{x} \sin{y},    & (0<x<\displaystyle{\frac{\pi}{2}},\ 0<y<\displaystyle{\frac{\pi}{2}}) \\
+            \\
+            \ \sin{x},    & (0<x<\displaystyle{\frac{\pi}{2}},\ y\geq \displaystyle{\frac{\pi}{2}})\\
+            \\
+            \ \sin{y},    & (x\geq \displaystyle{\frac{\pi}{2}},\ 0<y<\displaystyle{\frac{\pi}{2}})\\
+            \\
+            \ 1.  & (x\geq \displaystyle{\frac{\pi}{2}},\ y\geq \displaystyle{\frac{\pi}{2}})
+        \end{cases}
+    \]
+    \item [(2)]
+    \[
+        \begin{aligned}
+            P(0< X <\pi /4,\ \pi /4 < Y < \pi /2)
+            =&
+            F(\pi /4, \pi /2) - F(\pi /4, \pi/4) - F(0, \pi /2) + F(0, \pi /4)\\
+            =&  
+            \displaystyle{\frac{\sqrt{2}}{2} - \frac{1}{2} - 0 + 0}\\
+            =&
+            \displaystyle{\frac{\sqrt{2}-1}{2}}.
+        \end{aligned}
+    \]
+\end{enumerate}
+
+\section{(P116 T9)}  %3
+\begin{enumerate}
+    \item [(1)]
+    \[
+        \begin{cases}
+            \ F(+\infty, +\infty) & = a(b+ \pi /2) (c+ \pi /2) = 1\\
+            \ F(-\infty, -\infty) & = a(b- \pi /2) (c- \pi /2) = 0\\
+            \ F(0, -\infty) & = ab (c- \pi /2) = 0\\
+            \ F(-\infty, 0) & = ac (b- \pi /2) = 0
+        \end{cases}   
+        \ \Rightarrow\ 
+            a = \displaystyle{\frac{1}{\pi ^ 2}},\ 
+            b = \displaystyle{\frac{\pi}{2}},\ 
+            c = \displaystyle{\frac{\pi}{2}}
+    \]
+    \item [(2)]
+    \[
+        \begin{aligned}
+            P(X>0, Y>0)
+            & =
+            1 - P(X\leq 0) -P(Y\leq 0) + P(X\leq 0, Y\leq 0)\\
+            & = 
+            1 - F(0, +\infty) - F(+\infty, 0) + F(0,0)\\
+            & =
+            1 - \frac{1}{2} - \frac{1}{2} + \frac{1}{4}\\
+            & =  
+            \frac{1}{4}        
+        \end{aligned}
+    \]
+\end{enumerate}
+
+\section{(P116 T5)}  %4
+    由题意可得
+    \[
+        \begin{aligned}
+            &P(X=-1, X+Y=0) = P(X=-1)\cdot P(X+Y=0)\\ 
+            \ \Leftrightarrow&
+            P(X=-1, Y=1) = P(X=-1) \cdot [P(X=1,Y=-1) + P(X=-1,Y=1)]\\
+            \ \Leftrightarrow&
+            a = (a+0.2) \cdot (a+b)
+        \end{aligned}
+    \]
+    又$a+b+0.2+0.3 = 1$，有
+    \[
+        \begin{cases}
+            a+b = 0.5 \\
+            a = (a+0.2) (a+b)
+        \end{cases}   
+        \ \Rightarrow\ 
+        a= 0.2,\ b=0.3.
+    \]
+
+\section{(P117 T17)}  %5
+\begin{enumerate}
+    \item [(1)]对于$X=x(0<x<1)$，有
+    \[
+        f_{Y|X}(y|x) =  
+        \displaystyle{\frac{f(x,y)}{f_1(x)}}=
+        \begin{cases}
+            \displaystyle{\frac{3y^2}{x^3}},     & (0<y<x)\\
+            \\
+            0.   &(\mbox{其他})
+        \end{cases} 
+        \ \Rightarrow\ 
+        f(x,y)= f_{Y|X}(y|x) \cdot f_1(x) =  
+        \begin{cases}
+            \displaystyle{\frac{9y^2}{x}} & (0<y<x<1)\\
+            \\
+            0.  & (\mbox{其他})
+        \end{cases}
+    \]
+    又$\forall\ x\notin (0,1),\ f_{X}(x) = 0 \Rightarrow f(x,y)=0$，故
+    \[
+        f(x,y)=   
+        \begin{cases}
+            \displaystyle{\frac{9y^2}{x}} & (0<y<x<1)\\
+            \\
+            0.  & (\mbox{其他})
+        \end{cases}
+    \]
+    \item [(2)]
+    \[
+        f_{Y} (y)=
+        \int_{\mathbb{R}} f(x,y) dx =
+        \int_{y}^{1} f(x,y) dx = 
+        \begin{cases}
+            \ -9y^2 \ln{y},   &(0<y<1)\\
+            \ 0.  &\mbox{其他}    
+        \end{cases}
+    \]
+\end{enumerate}
+
+\end{document}
