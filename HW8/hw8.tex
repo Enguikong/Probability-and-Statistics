@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 8)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{(P122 T48)}  %1
+\begin{proof}
+    \begin{enumerate}
+        \item []
+        \item [(1)]
+        有$X$和$Y$边缘分布
+        \[
+            f(x,y) = 
+            \frac{1}{2\pi \sqrt{1-\rho^2}} 
+            e^{\{-\frac{1}{2(1-\rho^2)} (x^2 - 2\rho xy + y^2) \}}  
+            \ \Rightarrow\ 
+            X\sim N(0,1),\ Y\sim N(0,1)
+        \]
+        \[
+            f_{X} (x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}},\ 
+            f_{Y} (y) = \frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2}}.
+        \]
+        有$Z$分布
+        \[
+            f_{Z} (z) = P(Z \leq z) 
+            = \iint_{\frac{y-\rho x}{\sqrt{1-\rho^2}} \leq z} f(x,y) dx dy
+            = \int_{-\infty}^{+\infty} dx \int_{-\infty}^{\sqrt{1-\rho^2}z + \rho x}dy f(x,y)
+            = \frac{1}{\sqrt{2\pi (1-\rho^2)}} 
+            e^{-\frac{z^2}{2}}  
+        \]
+        有$X,Z$联合分布
+        \[
+            f_{(X,Z)} (x,z) 
+            = f(x, \sqrt{1-\rho^2}z + \rho x) 
+            = \frac{1}{2\pi \sqrt{1-\rho^2}} 
+            e^{\{-\frac{1}{2} (x^2 + z^2) \}}  
+            = f_{X}(x) \cdot f_{Z}(z) .
+        \]
+        即证.
+        \item [(2)]
+        \begin{align*}
+            P(XY<0) 
+            & = P(X\cdot (\sqrt{1-\rho^2} Z + \rho X) < 0)\\  
+            & = P(X>0 , (\sqrt{1-\rho^2} Z + \rho X) < 0) + P(X<0 , (\sqrt{1-\rho^2} Z + \rho X) > 0)\\
+            & = P(X>0 , Z < \frac{-\rho X}{\sqrt{1-\rho^2}}) + P(X<0 , Z > \frac{-\rho X}{\sqrt{1-\rho^2}}) \\
+            & = \int_{0}^{+\infty} dx \int_{-\infty}^{\frac{-\rho X}{\sqrt{1-\rho^2}}}  f_{(X,Z)}(x,z) dz \\
+            & = \int_{}\\
+            & = \pi ^{-1} \arccos \rho .
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\section{(P171 T1)}  %2
+\begin{enumerate}
+    \item [(0)]对$0<p<1$，记$q=1-p$，$\forall\ X\in \{4,\ 5,\ 6,\ 7 \}$，有
+    \[
+        P(X=n) = \binom{n-1}{n-4} \cdot (p^4 \cdot q^{n-4} + q^4 \cdot p^{n-4})   
+    \]
+    \[
+        E(X) = 4\cdot P(X=4) + 5 \cdot P(X=5) + 6\cdot P(X=6) + 7\cdot P(X=7)
+    \]
+    \item [(1)]对$p=0.5$，有
+    \[
+        E(X) = 4 \cdot \frac{1}{8} + 5 \cdot 4 \cdot \frac{1}{16} + 
+        6 \cdot 10 \cdot \frac{1}{32} + 7 \cdot 20 \cdot \frac{1}{64}
+        = \frac{93}{16}
+    \]
+    \item [(1)]对$p=0.6$，有
+    \[
+        E(X) 
+        = 
+        4 \cdot \frac{3^4 + 2^4}{5^4}
+        + 5 \cdot 4 \cdot \frac{3^4\cdot 2 + 2^4 \cdot 3}{5^5}
+        + 6 \cdot 10 \cdot \frac{3^4\cdot 2^2 + 2^4 \cdot 3^2}{5^6} 
+        + 7 \cdot 20 \cdot \frac{3^4\cdot 2^3 + 2^4 \cdot 3^3}{5^7}
+        = \frac{17804}{3125}
+    \]
+\end{enumerate}
+
+
+\section{(P171 T2)}  %3
+\begin{proof}
+    \begin{enumerate}
+        \item []
+        \item [(1)]
+        \[
+            E(X) 
+            = \sum\limits_{k=1}^{\infty} k \cdot P(X=k)    
+            = \sum\limits_{k=1}^{\infty} \sum\limits_{n=1}^{k} P(X=k)
+            = \sum\limits_{n=1}^{\infty} \sum\limits_{k=n}^{\infty} P(X=k)
+            = \sum\limits_{n=1}^{\infty} P(X\geq n)
+        \]
+        \item [(2)]
+        \[
+            E(X)
+            = \int_{0}^{\infty} t f(t) dt 
+            = \int_{0}^{\infty} f(t) dt \int_{0}^{t} dx
+            = \int_{0}^{\infty} dx \int_{x}^{\infty} f(t) dt
+            = \int_{0}^{\infty} (1- F(x)) dx.
+         \]
+        \item [(3)]
+    \end{enumerate}
+\end{proof}
+
+\section{(P171 T8)}  %4
+\begin{enumerate}
+    \item [(1)]
+    用$E(T_i)$表示从第$i-1$种到第$i$种需要买的卡片的期望，则单次买到第$i$种卡片的概率为$p=\displaystyle{\frac{n}{n-i+1}}$.
+    记$q = 1 - p$.
+    \[
+        E(T_i) 
+        = \sum\limits_{k=1}^{\infty} k\cdot q^{k-1}\cdot p
+        = p \cdot \left(\sum\limits_{k=1}^{\infty} q^{k} \right)'
+        = \frac{1}{p}
+        = \frac{n}{n-i+1}.
+    \]
+    \[
+        E(X_n)
+        = \sum\limits_{i=1}^{n} E(T_i)
+        = \sum\limits_{i=1}^{n} \frac{n}{n-i+1}
+        = n \cdot \sum\limits_{i=1}^{n} \frac{1}{i}
+        = 12 \cdot \sum\limits_{i=1}^{12} \frac{1}{i}
+        = \frac{86021}{2310}
+        \approx 37.24
+    \]
+    \item [(2)]
+    \[
+        \lim\limits_{n\to \infty} E\left(\frac{X_n}{n \ln n} \right)
+        = \lim\limits_{n\to \infty} \frac{E(X_n)}{n \ln n}   
+        = \lim\limits_{n\to \infty} \frac{n \cdot \sum\limits_{i=1}^{n} \frac{1}{i} }{n \ln n}   
+        = \lim\limits_{n\to \infty} \frac{\sum\limits_{i=1}^{n} \frac{1}{i} }{\ln n}   
+    \]
+    记$x_n = \sum\limits_{i=1}^{n} \frac{1}{i} - \ln n$，有
+    \[
+        x_n 
+        \geq \sum\limits_{i=1}^{n} \ln (1+\frac{1}{i}) - \ln n
+        = \ln (n+1) - \ln n
+        \geq 0.
+    \]
+    \[
+        x_{n+1} - x_n 
+        = \frac{1}{n+1} - \ln \frac{n+1}{n}
+        = \frac{1}{n+1} - \ln \left(1+\frac{1}{n}\right)
+        \leq \frac{1}{n+1} - \frac{1}{n+1}
+        = 0.
+    \]
+    由$\{x_n\}$单调有界可知$\lim\limits_{n\to \infty} x_n$存在，记为$x$.则
+    \[
+        \lim\limits_{n\to \infty} \frac{\sum\limits_{i=1}^{n} \frac{1}{i} }{\ln n}   
+        =
+        \lim\limits_{n\to \infty} \frac{\ln n + x}{\ln n}
+        =
+        \lim\limits_{n\to \infty} \left(1 + \frac{x}{\ln n}\right)
+        =
+        1.
+    \]
+    即
+    \[
+        E\left(\frac{X_n}{n \ln n}\right) = 1.    
+    \]
+\end{enumerate}
+
+\section{(P173 T11)}  %5
+\begin{proof}
+    不妨记$P(X=x_i) = p_i$，其中$p_i >0\ (i=1,2,\ldots,k),\ \sum\limits_{i=1}^{k} p_i =1$，不妨记$\max\limits_{1\leq i \leq k} x_i = x_m$，有
+    \[
+        E[X^n] = \sum\limits_{i=1}^{k} x_i^n p_i
+        \ \Rightarrow\ 
+        \lim\limits_{n\to \infty} \frac{E[X^n]}{x_m^n} = p_m .
+    \]
+    故
+    \[
+        \lim\limits_{n\to \infty} \frac{E[X^{n+1}]}{E[X^n]} 
+        =
+        \lim\limits_{n\to \infty} \frac{E[X^{n+1}]}{x_m^{n+1}} \frac{x_m^n \cdot x_m}{E[X^n]} 
+        =
+        x_m
+        =
+        \max\limits_{1\leq i \leq k} x_i .
+    \]
+\end{proof}
+
+\end{document}
