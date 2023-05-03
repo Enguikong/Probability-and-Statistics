@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.5)  3 MAY 2023 18:13
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.5)  4 MAY 2023 02:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -576,10 +576,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Here is how much of TeX's memory you used:
  10573 strings out of 475748
  247816 string characters out of 5802712
- 642793 words of memory out of 5000000
+ 641793 words of memory out of 5000000
  31616 multiletter control sequences out of 15000+600000
  476305 words of font info for 74 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 70i,10n,81p,301b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 70i,9n,81p,301b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on hw8.pdf (3 pages).

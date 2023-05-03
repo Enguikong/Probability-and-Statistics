@@ -29,28 +29,77 @@
             f_{Z} (z) = P(Z \leq z) 
             = \iint_{\frac{y-\rho x}{\sqrt{1-\rho^2}} \leq z} f(x,y) dx dy
             = \int_{-\infty}^{+\infty} dx \int_{-\infty}^{\sqrt{1-\rho^2}z + \rho x}dy f(x,y)
-            = \frac{1}{\sqrt{2\pi (1-\rho^2)}} 
-            e^{-\frac{z^2}{2}}  
+            = \frac{1}{\sqrt{2\pi}} e^{-\frac{z^2}{2}}  
         \]
         有$X,Z$联合分布
         \[
             f_{(X,Z)} (x,z) 
-            = f(x, \sqrt{1-\rho^2}z + \rho x) 
-            = \frac{1}{2\pi \sqrt{1-\rho^2}} 
-            e^{\{-\frac{1}{2} (x^2 + z^2) \}}  
+            = f(x, \sqrt{1-\rho^2}z + \rho x) \cdot |J|
+            = \sqrt{1- \rho^2} \cdot f(x, \sqrt{1-\rho^2}z + \rho x)
+            = \frac{1}{2\pi} e^{\{-\frac{1}{2} (x^2 + z^2) \}}  
             = f_{X}(x) \cdot f_{Z}(z) .
         \]
         即证.
         \item [(2)]
         \begin{align*}
             P(XY<0) 
-            & = P(X\cdot (\sqrt{1-\rho^2} Z + \rho X) < 0)\\  
-            & = P(X>0 , (\sqrt{1-\rho^2} Z + \rho X) < 0) + P(X<0 , (\sqrt{1-\rho^2} Z + \rho X) > 0)\\
-            & = P(X>0 , Z < \frac{-\rho X}{\sqrt{1-\rho^2}}) + P(X<0 , Z > \frac{-\rho X}{\sqrt{1-\rho^2}}) \\
-            & = \int_{0}^{+\infty} dx \int_{-\infty}^{\frac{-\rho X}{\sqrt{1-\rho^2}}}  f_{(X,Z)}(x,z) dz \\
-            & = \int_{}\\
-            & = \pi ^{-1} \arccos \rho .
+            & = 1 - P(XY\geq 0)\\
+            & = 1 - P(XY > 0)\\
+            & = 1 - P(X>0, Y>0) - P(X<0, Y<0)
         \end{align*}
+        由
+        \[
+            f(-x, -y) = f(x,y) 
+            \ \Rightarrow\ 
+            P(X<0,Y<0) = P(-x <0 , -y<0) = P(X>0, Y>0).    
+        \]
+        即
+        \[
+            P(XY<0) = 1 - 2P(X>0, Y>0).
+        \]
+        有
+        \begin{align*}
+            P(X>0, Y>0) 
+            & = P(X>0, (\sqrt{1-\rho^2} Z + \rho X) > 0) \\  
+            & = P(X>0 , (\sqrt{1-\rho^2} Z + \rho X) > 0) \\
+            & = P(X>0 , Z > \frac{-\rho X}{\sqrt{1-\rho^2}}) \\
+            & = \iint_{x>0, \sqrt{1-\rho^2} z + \rho x >0}  f_{(X,Z)}(x,z) dx dz.
+        \end{align*}
+        做代换
+        \[
+            \begin{cases}
+                x = r \cos \alpha\\
+                z = r \sin \alpha
+            \end{cases} 
+            \ \Rightarrow\ 
+            |J|
+            = \frac{\partial(x,z)}{\partial(r,\alpha)} 
+            = 
+            \begin{vmatrix}
+                \cos \alpha & \sin \alpha\\
+                -r\sin \alpha & -r \cos \alpha    
+            \end{vmatrix}  
+            = r.
+            \ (0\leq \alpha <2\pi ,\ r>0)
+        \]
+        记$\rho = \cos \beta ,\ \sqrt{1- \rho^2} = \sin \beta \ (0<\beta <\frac{\pi}{2})$，有
+        \[
+            \iint_{x>0, \sqrt{1-\rho^2} z + \rho x >0}  f_{(X,Z)}(x,z) dx dz.
+            = 
+            \iint_{\sin \alpha >0, \cos (\alpha - \beta) > 0} r\cdot \frac{1}{2\pi} e^{-\frac{r^2}{2}}   dr d\theta .
+        \]
+        \begin{align*}
+            P(X>0,Y>0)
+            & = \iint_{\sin \alpha >0, \cos (\alpha - \beta) > 0} r\cdot \frac{1}{2\pi \cdot \sin \beta} e^{-\frac{r^2}{2}}   dr d\theta\\
+            & = \int_{\sin \alpha >0, \cos (\alpha - \beta) > 0} \frac{1}{2\pi \cdot \sin \beta} d\theta \int_{0}^{+\infty}  -e^{-\frac{r^2}{2}} d(-\frac{r^2}{2})\\
+            & = \int_{0}^{\frac{\pi}{2}} \frac{1}{2\pi} d\theta + \int_{\frac{3\pi}{2}+\beta}^{2\pi} \frac{1}{2\pi} d\theta \\
+            & = \frac{\pi - \beta}{2\pi}\\
+            & = \frac{1}{2} - \frac{\arccos \rho}{2\pi}
+        \end{align*}
+        故
+        \[
+            P(XY<0) = 1 - P(X>0, Y>0) = \pi^{-1} \arccos \rho .  
+        \]
     \end{enumerate}
 \end{proof}
 
@@ -102,7 +151,18 @@
             = \int_{0}^{\infty} dx \int_{x}^{\infty} f(t) dt
             = \int_{0}^{\infty} (1- F(x)) dx.
          \]
-        \item [(3)]
+        \item [(3)]以$I(A)$表示事件$A$的示性函数，则有
+        \[
+            E(X) 
+            = E\left( \int_{0}^{X} dx \right)
+            = E\left( \int_{0}^{\infty} I(X>x)dx \right)
+            = \int_{0}^{\infty} E\left[ I(X>x) \right]
+            = \int_{0}^{\infty} P(X>x) dx
+        \]
+        即证
+        \[
+            E(X) = \int_{0}^{\infty} (1- F(x)) dx.
+        \]
     \end{enumerate}
 \end{proof}
 
