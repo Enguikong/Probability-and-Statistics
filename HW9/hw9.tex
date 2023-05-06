@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 9)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{(P173 T16)}  %1
+\begin{enumerate}
+    \item [(1)]
+    \[
+        E(sgn (X)) 
+        = \int_{-2}^{1} sgn(x)\cdot f(x) dx
+        = \frac{1}{3}\cdot \left(\int_{-2}^{0}sgn(x) dx + \int_{0}^{1} sgn(x) dx\right) 
+        = \frac{1}{3} \cdot (-1)
+        = -\frac{1}{3}.   
+    \]
+    \[
+        E({sgn}^2 (X))
+        = \int_{-2}^{1} {sgn}^2 (x) \cdot f(x) dx
+        = \frac{1}{3} \cdot \left(\int_{-2}^{0} {sgn}^{2}(x) dx  + \int_{0}^{1} {sgn}^{2} (x) dx \right)
+        = \frac{1}{3} \cdot 3
+        = 1.
+    \]
+    因此
+    \[
+        Var(sgn(X))
+        = E({sgn}^2 (X)) - {\left(E(sgn(X))\right)}^2  
+        = 1 - \frac{1}{9}
+        = \frac{8}{9} 
+    \]
+    \item [(2)]
+    \[
+        E(sgn(X) \cdot X)
+        = \int_{-\infty}^{+\infty} sgn(x) \cdot x \cdot f(x) dx    
+        = 2 \int_{0}^{+\infty} x \cdot \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx
+        = - \sqrt{\frac{2}{\pi}} \cdot e^{-\frac{x^2}{2}} \big| _{0}^{+\infty}
+        = \sqrt{\frac{2}{\pi}}.
+    \]
+\end{enumerate}
+
+\section{(P173 T18)}  %2
+\begin{enumerate}
+    \item [(1)]
+    \[
+        f_{Y} (y)
+        = P()f_{Y|X=1} (y) + f_{Y|X=2} (y)
+        =     
+    \]
+    \item [(2)]
+\end{enumerate}
+
+\section{(P174 T24)}  %3
+\begin{enumerate}
+    \item [(1)]
+    \item [(2)]
+\end{enumerate}
+
+\section{(P174 T26)}  %4
+\begin{enumerate}
+    \item [(1)]
+    \item [(2)]
+    \item [(3)]
+\end{enumerate}
+
+\section{(P178 T55)}  %5
+\begin{proof}
+    \begin{enumerate}
+        \item []
+        \item [(1)]
+        \item [(2)]
+    \end{enumerate}
+\end{proof}
+
+\end{document}
