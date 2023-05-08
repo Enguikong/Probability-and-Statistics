@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
 \usepackage{listings,xcolor,diagbox}
+\usepackage{unicode-math}
 \geometry{a4paper,scale=0.8}  
 \renewcommand\arraystretch{2}
 \title{概统作业 (Week 9)}
@@ -45,24 +46,142 @@
 \begin{enumerate}
     \item [(1)]
     \[
-        f_{Y} (y)
-        = P()f_{Y|X=1} (y) + f_{Y|X=2} (y)
-        =     
+        \begin{aligned}
+        F(y)
+        & = P(Y\leq y)\\
+        & = P(Y\leq y, X=1) + P(Y\leq y, X=2)\\
+        & = P(Y\leq y| X=1) \cdot P(X=1) + P(Y\leq y | X=2) \cdot P(X=2)\\
+        & = \frac{1}{2} \left[ P(Y\leq y| X=1) + P(Y\leq y| X=2) \right]
+        \end{aligned}
+    \]
+    \begin{enumerate}
+        \item [(a)]$y<0$
+        \[
+            F(y) = 0.    
+        \]
+        \item [(b)]$0\leq y <1$
+        \[
+            F(y) = \frac{1}{2}y + \frac{1}{2}\cdot \frac{y}{2} = \frac{3}{4} y.    
+        \]
+        \item [(c)]$1\leq y <2$
+        \[
+            F(y) = \frac{1}{2} + \frac{1}{2}\cdot \frac{y}{2} = \frac{1}{4}y + 2.    
+        \]
+        \item [(d)]$y\geq 2$
+        \[
+            F(y) = 1.
+        \]
+    \end{enumerate}
+    故
+    \[
+        F_{Y} (y)    
+        = 
+        \begin{cases}
+            0,  & (y<0) \\
+            \frac{3}{4}y, & (0\leq y <1) \\
+            \frac{y}{4} + \frac{1}{2}, & (1\leq y <2) \\
+            1. &(y\geq 2) 
+        \end{cases}
     \]
     \item [(2)]
+    \[
+        f_{Y} (y)
+        = F_{Y} '(y)
+        = 
+        \begin{cases}
+            \displaystyle{\frac{3}{4}} & (0\leq y <1)\\
+            \\
+            \displaystyle{\frac{1}{4}} & (1\leq y <2)\\
+            \\
+            0. & \mbox{其他}
+        \end{cases}
+    \]
+    \[
+        E(Y)
+        = \int_{-\infty}^{+\infty} y \cdot f_{Y} (y) dy
+        = \frac{3}{4} \int_{0}^{1} y dy + \frac{1}{4} \int_{1}^{2} y dy
+        = \frac{3}{8} y^2 \big|_{0}^{1} + \frac{1}{8} y^2 \big|_{1}^{2}
+        = \frac{3}{4}.
+    \]
 \end{enumerate}
 
 \section{(P174 T24)}  %3
 \begin{enumerate}
     \item [(1)]
+    \[
+        E(X+Y-3\mu)
+        = E(X) + E(Y) - 3\mu
+        = \mu + \mu - 3\mu 
+        = 0.   
+    \]
+    \[
+        Var(X+Y-3\mu)
+        = Var(X) + Var(Y) + 2 Cov(X,Y)
+        = \sigma^2 + 2\sigma^2 
+        + 2 \cdot \sigma \cdot \sqrt{2}\sigma \cdot \frac{\sqrt{2}}{4}
+        = 4\sigma^2 .
+    \]
+    故
+    \[
+        X+Y-3\mu \sim N(0 , 4\sigma^2)    
+    \]
+    记$Z= X+Y-3\mu$，有
+    \[
+        f_{Z} (z)
+        = \frac{1}{2\sqrt{2\pi} \sigma} e^{-\frac{z^2}{8 \sigma^2}}
+    \]
+    记${(X+Y-3\mu)}_{+} = \max\{ X+Y-3\mu , 0 \} = \max\{ z, 0 \} = g(z)$，有
+    \[
+        E(g(z))
+        = \int_{-\infty}^{+\infty} g(z)\cdot f_{Z} (z) dz
+        = \int_{0}^{+\infty} z \cdot \frac{1}{2\sqrt{2\pi} \sigma} e^{-\frac{z^2}{8 \sigma^2}} dz
+        = \sqrt{\frac{2}{\pi}} \sigma .
+    \]
     \item [(2)]
+    \[
+        E\left( g^2 (z) \right)  
+        = \int_{-\infty}^{+\infty} g^2 (z)\cdot f_{Z} (z) dz
+        = \int_{0}^{+\infty} z^2 \cdot \frac{1}{2\sqrt{2\pi} \sigma} e^{-\frac{z^2}{8 \sigma^2}} dz
+        = \frac{1}{2} E(z^2)
+        = \frac{1}{2} \left[ Var(z) + {(E(z))}^2 \right]
+        = 2 \sigma^2 .
+    \]
+    \[
+        Var(g(z)) 
+        = E(g^2 (z)) - {\left( E(z) \right)}^2
+        = (2-\frac{2}{\pi}) \sigma.
+    \]
 \end{enumerate}
 
 \section{(P174 T26)}  %4
 \begin{enumerate}
     \item [(1)]
+    记$\varphi (x_1 , x_2 , x_3) = x_1 + x_2 + x_3$，则
+    \[
+        E(X_1 + X_2 + X_3)
+        = \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} \varphi(x_1 , x_2 , x_3) dS
+        = \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} x_1 dS + \oiint\limits_{x_1^2 + x_2^2 + x_3^2} x_2 dS + \oiint\limits_{x_1^2 + x_2^2 + x_3^2} x_3 dS
+        = 0.
+    \]
     \item [(2)]
-    \item [(3)]
+    \[
+        E\left[ {(X_1 + X_2 + X_3)}^2\right]
+        = \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} {(x_1 + x_2 + x_3)}^2 dS
+        = \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} 1 + 2 (x_1 x_2 + x_1 x_3 + x_2 x_3) dS
+    \]
+    又
+    \[
+        \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} x_1 x_2 dS 
+        = \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} x_1 x_3 dS 
+        = \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} x_2 x_3 dS
+        = 0.
+    \]
+    \[
+        Var(X_1 + X_2 + X_3)
+        = E\left[ {(X_1 + X_2 + X_3)}^2\right] - {\left[E(X_1 + X_2 + X_3) \right]}^2 
+        = \oiint\limits_{x_1^2 + x_2^2 + x_3^2 = 1} dS
+        = 4\pi .
+    \]
 \end{enumerate}
 
 \section{(P178 T55)}  %5
@@ -70,7 +189,59 @@
     \begin{enumerate}
         \item []
         \item [(1)]
-        \item [(2)]
+        \begin{enumerate}
+            \item [(a)]证明1：
+            \[
+                \forall\ X\in [0,1],\ 
+                X^2\leq X
+                \ \Rightarrow\ 
+                Var(X)
+                = E(X^2) - {E(X)}^2
+                \leq E(X) - {E(X)}^2   
+            \]
+            记$t = E(X)$，则$0\leq t \leq 1$，有
+            \[
+                Var(X) = t(1-t) \leq {\left(\frac{t+(1-t)}{2}\right)}^2 = \frac{1}{4}.    
+            \]
+            \item [(b)]证明2：
+            
+            取$Y = X - \displaystyle{\frac{1}{2}}$ ，有
+            \[
+                Var(Y) = Var(X),\ 
+                -\frac{1}{2} \leq Y \leq \frac{1}{2}
+                \ \Rightarrow\ 
+                0\leq Y^2 \leq \frac{1}{4}
+                \ \Rightarrow\ 
+                E(Y^2) \leq \frac{1}{4}
+            \]
+            故
+            \[
+                Var(X) 
+                = Var(Y) = E(Y^2) - {\left(E(Y)\right)}^2 
+                \leq \frac{1}{4} - {\left(E(Y)\right)}^2 
+                \leq \frac{1}{4}
+            \]
+        \end{enumerate}
+        
+        当且仅当$E(X)=\frac{1}{2}$且$E(X) = E(X^2)$时等号成立，即$X$服从$P(X=1)=P(X=0)=\displaystyle{\frac{1}{2}}$的分布时.
+        \item [(2)]当$0<a\leq X\leq b$时，有$Var(X)\leq \displaystyle{\frac{{(b-a)}^2}{4}}$，当且仅当$X$服从$P(X=a)=P(X=b)=\displaystyle{\frac{1}{2}}$的分布时取等.
+        
+        取$Y = X - \displaystyle{\frac{a+b}{2}}$ ，有
+        \[
+            Var(Y) = Var(X), \ 
+            \frac{a-b}{2} \leq Y \leq \frac{b-a}{2}
+            \ \Rightarrow\ 
+            0 \leq Y^2 \leq \frac{{(b-a)}^2}{4}
+            \ \Rightarrow\ 
+            E(Y^2)\leq \frac{{(b-a)}^2}{4}
+        \]
+        故
+        \[
+            Var(X) 
+            = Var(Y) = E(Y^2) - {\left(E(Y)\right)}^2 
+            \leq \frac{{(b-a)}^2}{4} - {\left(E(Y)\right)}^2 
+            \leq \frac{{(b-a)}^2}{4}
+        \]
     \end{enumerate}
 \end{proof}
 
