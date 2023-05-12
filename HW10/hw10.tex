@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\usepackage{unicode-math}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 10)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{()}  %1
+\begin{enumerate}
+    \item []选$C$.
+    \item [(1)]
+    \[
+        E(Y_1) 
+        = \int_{-\infty}^{+\infty} y \cdot \frac{f_{1} (y)+f_{2} (y)}{2} dy
+        = \frac{1}{2}\cdot \left(\int_{-\infty}^{+\infty} y \cdot f_{1} (y) dy + \int_{-\infty}^{+\infty} y \cdot f_{2} (y) dy\right)
+        = \frac{E(X_1) + E(X_2)}{2}.
+    \]
+    \[
+        E(Y_2)
+        = E\left(\frac{X_1 + X_2}{2}\right)
+        = \frac{1}{2}\cdot \left(E(X_1 + X_2)\right)  
+        = \frac{E(X_1) + E(X_2)}{2}
+        = E(Y_1) .
+    \]
+    \item [(2)]
+    \[
+        E(Y_1^2)
+        = \int_{-\infty}^{+\infty} y^2 \cdot \frac{f_{1} (y)+f_{2} (y)}{2} dy
+        = \frac{1}{2}\cdot \left(\int_{-\infty}^{+\infty} y^2 \cdot f_{1} (y) dy + \int_{-\infty}^{+\infty} y^2 \cdot f_{2} (y) dy\right)
+        = \frac{E(X_1^2) + E(X_2^2)}{2}.    
+    \]
+    \[
+        Var(Y_1)
+        = E(Y_1^2) - {E(Y_1)}^2   
+        = \frac{E(X_1^2) + E(X_2^2)}{2} - {\left(\frac{E(X_1) + E(X_2)}{2}\right)}^2
+        = 
+    \]
+    \[
+        Var(Y_2)   
+        = Var\left(\frac{X_1 + X_2}{2}\right) 
+        = \frac{1}{4}\left( Var(X_1) + Var(X_2) \right)
+        = 
+    \]
+\end{enumerate}
+
+\section{(P174 T27)}  %2
+
+
+\section{(P175 T30)}  %3
+
+
+\section{(P175 T32)}  %4
+
+
+\section{(P175 T34)}  %5
+
+\end{document}
