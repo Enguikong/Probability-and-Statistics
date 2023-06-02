@@ -1,0 +1,224 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\usepackage{unicode-math}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 11)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{(P176 T42)}  %1
+\begin{proof}
+    \begin{enumerate}
+        \item []
+        \item [(1)]
+        \begin{align*}
+            X_n \xrightarrow{P} X     
+            &\Rightarrow\ 
+            \forall\ \frac{\varepsilon}{2} >0,\ \lim\limits_{n \to \infty} P(|X_n - X|\geq \frac{\varepsilon}{2}) = 0.\\
+            &\Rightarrow\ 
+            \forall\ \frac{\varepsilon}{2} >0,\ \forall\ \frac{\delta}{2} >0 ,\ \exists\ N_1 >0,\ \forall\ n>N_1,\ P(|X_n - X|\geq \frac{\varepsilon}{2}) < \frac{\delta}{2}.
+        \end{align*}
+        \item [(2)]
+        \begin{align*}
+            Y_n \xrightarrow{P} Y     
+            &\Rightarrow\ 
+            \forall\ \frac{\varepsilon}{2} >0,\ \lim\limits_{n \to \infty} P(|Y_n - Y|\geq \frac{\varepsilon}{2}) = 0.\\
+            &\Rightarrow\ 
+            \forall\ \frac{\varepsilon}{2} >0,\ \forall\ \frac{\delta}{2} >0 ,\ \exists\ N_1 >0,\ \forall\ n>N_1,\ P(|Y_n - Y|\geq \frac{\varepsilon}{2}) <  \frac{\delta}{2}.
+        \end{align*}
+        \item [(3)]$\forall\ \varepsilon >0,\ \forall\ \delta >0,\ \exists\ N_1 , N_2 >0$，
+        \[
+            \forall\ n>\max\{N_1 , N_2\},\ 
+            P(|X_n + Y_n - X - Y|\geq \varepsilon) 
+            \leq
+            P(|X_n - X|\geq \frac{\varepsilon}{2}) + P(|Y_n - Y|\geq \frac{\varepsilon}{2})  
+            < \delta.  
+        \]
+        即证$\forall\ \varepsilon >0$，有
+        \[
+            \lim\limits_{n \to \infty} P(|X_n + Y_n - X - Y|\geq \varepsilon) = 0.
+        \]
+        即证
+        \[
+            X_n + Y_n \xrightarrow{P} X + Y .     
+        \]
+    \end{enumerate}
+\end{proof}
+
+\section{(P177 T45)}  %2
+\begin{enumerate}
+    \item [(1)]记500次独立重复试验中，事件A发生的次数为$X$，则$X\sim B(500,0.2)$
+    \[
+        E(X) = 500 \times 0.2 = 100. 
+        \qquad 
+        Var(X) = 500\times 0.2 \times (1 - 0.2) = 80.
+    \]
+    \[
+        P(80<X<120) 
+        = P(|X-100|<20) 
+        = 1 - P(|X-100|\geq 20) 
+        \geq  1 - \frac{80}{20^2} 
+        = 0.8 .    
+    \]
+    即用切比雪夫不等式估计，概率大约为$0.8$.
+    \item [(2)]记第$i$次实验中事件A发生的次数为$X_i$，则$X_i \sim B(1,0.2)$，有
+    \[
+        S_n = \sum\limits_{i=1}^{500} X_n ,\quad
+        np = 100,\quad
+        \sqrt{np(1-p)} = \sqrt{80} = 4\sqrt{5}.
+    \]
+    记事件A发生次数在80和120之间为事件M，则
+    \[
+        P(M)
+        = P(80 \leq S_n \leq 120)
+        = P\left(-\sqrt{5} \leq \frac{S_n - np}{\sqrt{np(1-p)}} \leq \sqrt{5} \right)
+        = 2 P\left(\frac{S_n - np}{\sqrt{np(1-p)}} \leq \sqrt{5} \right) - 1
+    \]
+    又
+    \[
+        \frac{S_n - np}{\sqrt{np(1-p)}} 
+        \xrightarrow{\mathcal{L} }
+        N(0,1)    
+        \ \Rightarrow\ 
+        P\left(\frac{S_n - np}{\sqrt{np(1-p)}} \leq \sqrt{5} \right)
+        \approx \Phi(\sqrt{5})
+        \approx 0.9868
+    \]
+    有
+    \[
+        P(M) \approx 2\times 0.9868 - 1 = 0.9736 .
+    \]
+    即用中心极限定理估计，概率大约为$0.9736$.
+\end{enumerate}
+
+
+\section{(P175 T51)}  %3
+\begin{enumerate}
+    \item [(0)]设第$i$件产品的组装时间为$X_i$分钟，则$X_i \sim Exp(\lambda)$，有
+    \[
+        \mu = E(X_i) = \frac{1}{\lambda} = 10
+        \ \Rightarrow\ 
+        \lambda = \frac{1}{10},\ 
+        \sigma^2 = Var(X_i) = \frac{1}{\lambda^2} = 100.    
+    \]
+    \item [(1)]记$S_n = \sum\limits_{i=1}^{100} X_i$
+    \[
+        P(15\times 60 \leq S_n \leq 20\times 60)  
+        = P(S_n \leq 1200) - P(S_n \leq 900)  
+    \]
+    由中心极限定理有
+    \[
+        P(S_n \leq 1200)
+        = P\left(\frac{\sqrt{n}(S_n / n - \mu)}{\sigma} \leq 2 \right)    
+        \approx \Phi(2)
+    \]
+    \[
+        P(S_n \leq 900)
+        = P\left(\frac{\sqrt{n}(S_n / n - \mu)}{\sigma} \leq -1 \right)    
+        \approx \Phi(-1)
+    \]
+    故
+    \[
+        P(900 \leq S_n \leq 1200)
+        \approx \Phi(2) - \Phi(-1)
+        = \Phi(2) + \Phi(1) - 1
+        \approx 0.8185.
+    \]
+    \item [(2)]设保证有$95\% $的可能性下，$16h$内最多可以组装$k$件产品，
+    记$S_k = \sum\limits_{i=1}^{k} X_i$，则有
+    \[
+        P\left( S_k \leq 16\times 60\right)
+        = P\left( S_k \leq 960 \right)
+        \geq 0.95
+    \]
+    又由中心极限定理
+    \[
+        P(S_k \leq 960)
+        = P\left(\frac{\sqrt{k}(S_k / k - \mu)}{\sigma} \leq \frac{\sqrt{k}(960/ k - \mu)}{\sigma} \right)
+        = P\left(\frac{\sqrt{k}(S_k / k - \mu)}{\sigma} \leq \frac{96 - k}{\sqrt{k}} \right)
+        \approx \Phi\left( \frac{96 - k}{\sqrt{k}} \right)
+    \]
+    有
+    \[
+        \Phi\left( \frac{96 - k}{\sqrt{k}} \right) \geq 0.95,\ 
+        \Phi(1.645)=0.950015
+        \ \Rightarrow\ 
+        \frac{96 - k}{\sqrt{k}} \geq 1.645
+        \ \Rightarrow\ 
+        k_{\max} = 81 .
+    \]
+    即要保证有$95\% $的可能性下，$16h$内最多可以组装$81$件产品，
+\end{enumerate}
+
+\clearpage
+\section{(P175 T59)}  %4
+\begin{proof}
+    \begin{enumerate}
+        \item []
+        \item []
+        设$X_i\ (i=0,1,2,\ldots)$为服从参数$\lambda = 1$的泊松分布，且相互独立的一系列分布，则
+        \[
+            \mu = E(X_i) = \lambda = 1,\quad
+            \sigma^2 = Var(X_i) = \lambda = 1   
+        \]
+        记$S_n = \sum\limits_{i=0}^{n} X_i$，由中心极限定理有
+        \[
+            \lim\limits_{n\to \infty} P\left(\frac{\sqrt{n} (S_n / n - \mu) }{\sigma} \leq 0 \right)
+            = \lim\limits_{n\to \infty} P(S_n \leq n)
+            = \Phi(0)
+            = \frac{1}{2}.
+        \]
+        即
+        \[
+            \lim\limits_{n\to \infty} P\left(\sum\limits_{i=0}^{n} X_i \leq n\right)     
+            = \frac{1}{2}.
+        \]
+        又$Y_n = \sum\limits_{i=0}^{n} X_i$服从参数$\lambda = n$的泊松分布，故
+        \[
+            P\left( \sum\limits_{i=0}^{n} X_i \leq n \right) 
+            = P\left( Y_n \leq n \right)   
+            = \sum\limits_{i=0}^{n} \frac{e^{-n} \cdot n^{k}}{k!}
+            = e^{-n} \sum\limits_{i=0}^{n} \frac{n^k}{k!}
+        \]
+        即证
+        \[
+            \lim\limits_{n\to \infty}e^{-n} \sum\limits_{i=0}^{n} \frac{n^k}{k!}
+            = \lim\limits_{n\to \infty} P\left(\sum\limits_{i=0}^{n} X_i \leq n\right)     
+            = \frac{1}{2}.
+        \]
+    \end{enumerate}
+    
+    
+\end{proof}
+
+
+\section{(P240 T8)}  %5
+\begin{enumerate}
+    \item [(1)]
+    样本空间：
+    \[
+        \Omega 
+        = \{(x_1, x_2, \ldots, x_5)\ |\ x_i = 0,1\ \mbox{且} \ 1\leq i \leq 5 \}
+    \]
+    抽样分布：$记k = \sum\limits_{i=1}^{5} x_i$，
+    \[
+        P(X_1 = x_1, X_2 = x_2, \ldots, X_5 = x_5)
+        = p^{k} {(1-p)}^{5 - k}.
+    \]
+    \item [(2)]
+    统计量：
+    \[
+        X_1 + X_2,\quad
+        \min_{1\leq i \leq 5} X_i
+    \]
+    非统计量：因为依赖于未知的参数$p$，所以不是统计量
+    \[
+        X_5+2p,\quad
+        X_5 - E(X_1),\quad
+        \frac{{(X_5 - X_1)}^2}{Var(X_1)}    
+    \]
+\end{enumerate}
+
+\end{document}

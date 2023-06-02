@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\usepackage{unicode-math}
+\usepackage{media9}
+\usepackage{multimedia}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统作业 (Week 12)}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\section{}  %1
+\subsection*{选B}
+\begin{enumerate}
+    \item [(A)]
+    \[
+        (X_i - \mu) \sim N(0,1)
+        \ \Rightarrow\ 
+        \sum\limits_{i=1}^{n} {(X_i - \mu)}^2 \sim \chi _{n}^{2}
+    \]
+    \item [(B)]
+    \[
+        (X_n - X_1) \sim N(0,2)
+        \ \Rightarrow\ 
+        \frac{{(X_n - X_1)}^2}{2} \sim \chi_{1}^{2}
+        \ \Rightarrow\ 
+        2 {(X_n - X_1)}^2 \mbox{不服从} \chi^2 \mbox{分布}
+    \]
+    \item [(C)]
+    \[
+        \sum\limits_{i=1}^{n} {(X_n - \overline{X})}^2
+        = (n-1) S^2 \sim \chi_{n-1}^{2}
+    \]
+    \item [(D)]
+    \[
+        \sqrt{n} (\overline{X} - \mu) \sim N(0,1)
+        \ \Rightarrow\ 
+        n {(\overline{X} - \mu)}^2 \sim \chi_{1}^{2}    
+    \]
+\end{enumerate}
+
+\section{(P205 T15)}  %2
+\[
+    \begin{cases}
+        \ E(X_1 - 2 X_2) = 0, \quad & Var(X_1 - 2 X_2) = 20\\
+        \ E(3 X_3 - 4 X_4) = 0, \quad & Var(3 X_3 - 4 X_4) = 100
+    \end{cases}
+    \ \Rightarrow\ 
+    \begin{cases}
+        \ X_1 - 2 X_2 & \sim N(0, 20)\\
+        \ 3 X_3 - 4X_4 & \sim N(0, 100)
+    \end{cases}
+\]
+要使$T$服从$\chi^2$分布，有
+\[
+    \begin{cases}
+        \sqrt{a} (X_1 - 2 X_2)  & \sim N(0, 1)\\
+        \sqrt{b} (3X_3 - 4X_4)  & \sim N(0, 1)
+    \end{cases}
+    \ \Rightarrow\ 
+    20a = 100b = 1
+    \ \Rightarrow\ 
+    a = \frac{1}{20},\ b =\frac{1}{100}
+\]
+
+\section{(P205 T16)}  %3
+\begin{proof}
+    \begin{enumerate}
+        \item []
+        \item []服从自由度为$2$的$t$分布.不妨设$X_i \sim N(\mu, \sigma^2)\ (1\leq i\leq 9)$，有
+        \[
+            E(Y_1) = E(Y_2) = \mu,\quad
+            Var(Y_1) = \frac{\sigma^2}{6},\quad
+            Var(Y_2) = \frac{\sigma^2}{3}
+        \]
+        故
+        \[
+            E(Y_1 - Y_2) = 0,\quad
+            Var(Y_1 - Y_2) = \frac{\sigma^2}{2},\quad
+            Y_1 - Y_2 \sim N(0, \frac{\sigma^2}{2})  
+        \]
+        记$M = \frac{\sqrt{2}}{\sigma} (Y_1 - Y_2)$，则
+        \[
+            M \sim N(0,1)    
+        \]
+        记$N = \frac{2 S^2}{\sigma^2}$，由定理可得
+        \[
+            N = \frac{2 S^2}{\sigma^2} \sim \chi_{2}^2
+        \]
+        则
+        \[
+            Z = \frac{\sqrt{2} (Y_1 - Y_2)}{S} = \frac{M}{\sqrt{N/2}} \sim t_2 .
+        \]
+    \end{enumerate}
+\end{proof}
+
+
+\section{(P232 T8)}  %4
+\begin{enumerate}
+    \item [(1)]
+    \[
+        E(X) 
+        = \int_{-\infty}^{+\infty} x \cdot f(x) dx   
+        = \int_{0}^{\theta} \frac{x}{2\theta} dx + \int_{\theta}^{1} \frac{x}{2(1-\theta)} dx
+        = \frac{1}{4} + \frac{\theta}{2}
+    \]
+    有
+    \[
+        \overline{X} = \frac{1}{4} + \frac{\widehat{\theta} }{2} 
+        \ \Rightarrow\ 
+        \widehat{\theta} = 2 \overline{X} - \frac{1}{2} .
+    \]
+    \item [(2)]不是。理由如下
+    \[
+        E(4 \overline{X}^2) 
+        = 4 \left[ Var(\overline{X}) + {\left( E(\overline{X}) \right)}^2 \right] 
+        = 4 \left[ \frac{Var(X)}{n} + {\left( E(X) \right)}^2 \right]
+    \]
+    又
+    \[
+        E(X) = \frac{1}{4} + \frac{\theta}{2},\quad
+        E(X^2) = \int_{-\infty}^{+\infty} x^2 f(x) dx = \frac{2\theta^2 + \theta + 1}{6}  
+    \]
+    故
+    \[
+        Var(X) 
+        = E(X^2) - {E(X)}^2
+        = \frac{2\theta^2 + \theta + 1}{6} - {\left(\frac{1}{4} + \frac{\theta}{2} \right)}^2
+        = \frac{\theta^2}{12} - \frac{\theta}{12} + \frac{5}{48}.
+    \]
+    原式即为
+    \[
+        E(4 \overline{X}^2) 
+        = 4 \left[\left( \frac{\theta^2}{12n} - \frac{\theta}{12n} + \frac{5}{48n} \right) + \left( \frac{\theta^2}{4} + \frac{\theta}{4} + \frac{1}{16} \right)\right]
+        = \frac{3n + 1}{3n} \theta^2 + \frac{3n-1}{3n} \theta + \frac{3n+5}{12}
+        \neq \theta^2
+    \]
+    即证$4 \overline{X}^2$不是$\theta^2$的无偏估计量.
+\end{enumerate}
+
+\section{(P234 T27)}  %5
+有最大似然函数
+\[
+    L(X_1,X_2,\ldots,X_n ; \lambda)
+    = \prod_{i=1}^{n} \frac{\lambda^{x_i}}{X_i !} e^{-\lambda}
+    = e^{-n\lambda} \prod_{i=1}^{n} \frac{\lambda^{X_i}}{X_i !}.
+\]
+\[
+    \ln L 
+    = -n\lambda + \sum\limits_{i=1}^{n} \left(X_i \ln \lambda - \ln X! \right)    
+\]
+令
+\[
+    \frac{\partial \ln L}{\partial \lambda} 
+    = \frac{1}{\lambda} \sum\limits_{i=1}^{n} X_i - n 
+    = 0. 
+\]
+得
+\[
+    \widehat{\lambda} = \frac{1}{n}\sum\limits_{i=1}^{n} X_i = \overline{X}  
+\]
+检验二阶导
+\[
+    \frac{\partial^2 \ln L}{\partial \lambda^2} 
+    = - \frac{1}{\lambda^2} \sum\limits_{i=1}^{n} X_i 
+\]
+对于所有$\lambda$与$\overline{X}$非零时为负，故所求驻点为$L$极大值点，$P(X=0)$的最大似然估计为
+\[
+    P(X = 0) = e^{-\widehat{\lambda}} = e^{- \overline{X}}
+\]
+
+\section{(P235 T29)}    %6
+\begin{enumerate}
+    \item [(1)]即$X \sim U(\theta, 0),\ \theta \in \Theta$，有矩估计
+    \[
+        E(X)
+        = \frac{0 + \theta}{2}
+        = \overline{X}
+        \ \Rightarrow\ 
+        \widehat{\theta}
+        = 2 \overline{X}    
+    \]
+    有最大似然函数
+    \[
+        L(X_1,X_2,\ldots,X_n ; \theta)
+        = \prod_{i=1}^{n} P(X = X_i)
+        = 
+        \begin{cases}
+            \displaystyle{\frac{1}{{(-\theta)}^{n}}}, & X_1, X_2, \ldots, X_n \in [\theta, 0]\\
+            \\
+            0. & \mbox{其他}
+        \end{cases}
+    \]
+    显然当${(-\theta)}^{n}$最小，即$\theta$最大时，$L$最大，又
+    \[
+        \theta \leq \min\{X_1, X_2, \ldots, X_n\},\ 
+        \theta \in (-\infty, 0)
+    \]
+    有最大似然估计
+    \[
+        \widehat{\theta} = \min\{X_1, X_2, \ldots, X_n\} .
+    \]
+    \item [(2)]即$X \sim U(\theta, 2\theta),\ \theta \in \Theta$，有矩估计
+    \[
+        E(X)
+        = \frac{\theta + 2\theta}{2}
+        = \overline{X}
+        \ \Rightarrow\ 
+        \widehat{\theta}
+        = \frac{2}{3} \overline{X}    
+    \]
+    有最大似然函数
+    \[
+        L(X_1,X_2,\ldots,X_n ; \theta)
+        = \prod_{i=1}^{n} P(X = X_i)
+        = 
+        \begin{cases}
+            \displaystyle{\frac{1}{\theta^{n}}}, & X_1, X_2, \ldots, X_n \in [\theta, 2\theta]\\
+            \\
+            0. & \mbox{其他}
+        \end{cases}
+    \]
+    显然当${\theta}^{n}$最小时，$L$最大，又
+    \[
+        \theta \leq \min\{X_1, X_2, \ldots, X_n\},\ 
+        \theta \geq \max\{X_1, X_2, \ldots, X_n\},\ 
+        \theta \in (0, +\infty)
+    \]
+    有最大似然估计
+    \[
+        \widehat{\theta} =\frac{1}{2} \max\{X_1, X_2, \ldots, X_n\} .
+    \]
+\end{enumerate}
+
+
+\end{document}
