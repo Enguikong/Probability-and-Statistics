@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.5)  2 JUN 2023 14:11
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.5)  5 JUN 2023 10:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -742,16 +742,29 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00107pt on input line 16.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 16.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 16.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 16.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 16.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 16.
+ [1
 
-] (./hw13.aux) ) 
+] [2] [3] [4] (./hw13.aux) ) 
 Here is how much of TeX's memory you used:
- 15379 strings out of 475748
- 330632 string characters out of 5802712
- 838536 words of memory out of 5000000
- 36391 multiletter control sequences out of 15000+600000
- 473071 words of font info for 65 fonts, out of 8000000 for 9000
+ 15425 strings out of 475748
+ 332616 string characters out of 5802712
+ 860536 words of memory out of 5000000
+ 36421 multiletter control sequences out of 15000+600000
+ 474860 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 70i,6n,115p,302b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 70i,11n,115p,302b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw13.pdf (1 page).
+Output written on hw13.pdf (4 pages).
