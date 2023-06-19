@@ -303,6 +303,16 @@
         \chi_{0.025}^{2} (10) = 3.2470 , \quad
         \chi_{0.975}^{2} (10) = 20.4832
     \]
+    取枢轴量
+    \[
+        Q = \sum\limits_{i=1}^{10} {\left( \frac{X_i - \mu}{\sigma} \right)}^2
+        \sim \chi^2_{10} 
+    \]
+    由
+    \[
+        P\left(\chi^2_{1 - \alpha / 2} (10) \leq \frac{\sum\limits_{i=1}^{n} {\left(X_i - \mu\right)}^2 }{\sigma^2} \leq \chi^2_{\alpha / 2} (10) \right)    
+        = 1 -\alpha
+    \]
     有置信区间
     \[
         \left[
@@ -324,6 +334,19 @@
         \chi_{0.025}^{2} (9) = 2.7004, \quad
         \chi_{0.975}^{2} (9) = 19.0228
     \] 
+    选取
+    \[
+        K = \frac{(n-1) S^2}{\sigma^2} \sim \chi^2_{n-1}    
+    \]
+    由
+    \[
+        P\left(
+            \frac{(n-1)S^2}{\chi^2_{\alpha / 2} (n-1)}       
+            \leq \sigma^2 \leq 
+            \frac{(n-1)S^2}{\chi^2_{1 - \alpha / 2} (n-1)}  
+        \right)    
+        = 1 - \alpha
+    \]
     有置信区间
     \[
         \left[
