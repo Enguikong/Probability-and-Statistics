@@ -21,7 +21,36 @@
 
 \section{}  %2
 \begin{enumerate}
-    \item [(1)]
+    \item [(1)]有最大似然函数
+    \[
+        L(X_1, X_2, \ldots, X_{n} ; p)
+        = \prod\limits_{i=1}^{n} p {(1-p)}^{k-1}
+        % = p^{130} {(1-p)}^{31 + 2*20 + 3*9 + 4*6 + 5*5 + 6*4 + 7*2 + 8*1 + 9*1 + 10*2 + 11*1}    
+        = p^{130} {(1-p)}^{233}
+    \]
+    \[
+        \ln L
+        = 130\cdot \ln p + 233\cdot \ln (1-p)    
+    \]
+    令
+    \[
+        \frac{\partial \ln L}{\partial p}
+        = \frac{130}{p} + \frac{233}{1-p} 
+        = 0.   
+    \]
+    得
+    \[
+        \widehat{p} = -\frac{130}{103} \approx -1.262   
+    \]
+    检验二阶导
+    \[
+        \frac{\partial^2 \ln L}{\partial p^2}
+        = -\frac{130}{p^2} + \frac{233}{{(1-p)}^2} 
+    \]
+    当$p = \widehat{p}$时，二阶偏导为负，故所求驻点为$L$极大值点，最大似然估计为
+    \[
+        \widehat{p} = -\frac{130}{103} \approx -1.262  
+    \]
     \item [(2)]
 \end{enumerate}
 
