@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.5)  19 JUN 2023 22:12
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.5)  20 JUN 2023 20:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -757,14 +757,14 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 15.
  [1
 
-] (./hw15.aux) ) 
+] [2] (./hw15.aux) ) 
 Here is how much of TeX's memory you used:
- 15422 strings out of 475748
- 332530 string characters out of 5802712
- 843536 words of memory out of 5000000
- 36420 multiletter control sequences out of 15000+600000
+ 15434 strings out of 475748
+ 333402 string characters out of 5802712
+ 849536 words of memory out of 5000000
+ 36432 multiletter control sequences out of 15000+600000
  474852 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 70i,6n,115p,302b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 70i,8n,115p,302b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw15.pdf (1 page).
+Output written on hw15.pdf (2 pages).

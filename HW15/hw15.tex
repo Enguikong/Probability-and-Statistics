@@ -35,26 +35,104 @@
     令
     \[
         \frac{\partial \ln L}{\partial p}
-        = \frac{130}{p} + \frac{233}{1-p} 
+        = \frac{130}{p} + \frac{233}{p-1} 
         = 0.   
     \]
     得
     \[
-        \widehat{p} = -\frac{130}{103} \approx -1.262   
+        \widehat{p} = \frac{130}{363} \approx 0.358 
     \]
     检验二阶导
     \[
         \frac{\partial^2 \ln L}{\partial p^2}
-        = -\frac{130}{p^2} + \frac{233}{{(1-p)}^2} 
+        = -\frac{130}{p^2} - \frac{233}{{(p-1)}^2} 
     \]
     当$p = \widehat{p}$时，二阶偏导为负，故所求驻点为$L$极大值点，最大似然估计为
     \[
-        \widehat{p} = -\frac{130}{103} \approx -1.262  
+        \widehat{p} = \frac{130}{363} \approx 0.358   
     \]
     \item [(2)]
+    \[
+        \begin{tabular}{c|ccccccc}
+            类别 & 1 & 2 & 3 & 4 & 5 & 6 & $\geq 7$ \\
+            \hline
+            $\widehat{E}$ & 46.54 & 29.879 & 19.182 & 12.315 & 7.906 & 5.076 & 9.102 \\
+            $O$ & 48 & 31 & 20 & 9 & 6 & 5 & 11\\
+            $O - \widehat{E}$ & 1.46 & 1.121 & 0.818 & -3.315 & -1.906 & -0.076 & 1.898 
+        \end{tabular}
+    \]
+    有检验
+    \[
+        H_0 : P(X = k) = p\cdot {(1-p)}^{k-1}\ (k = 1,2,\ldots)
+        \quad \leftrightarrow \quad
+        H_1 : \exists\ k\in \mathbb{N}^* , P(X = k) \neq p \cdot {(1-p)}^{k-1} 
+    \]
+    构造统计量
+    \[
+        Z 
+        = \sum \frac{{(O - \widehat{E})}^2}{\widehat{E}}
+        \sim \chi_{k-r-2}^{2}
+        \qquad (n\to \infty)
+    \]
+    有拒绝域
+    \[
+        W = 
+        \left\{
+            Z > \chi_{k-r-1}^{2} (\alpha)
+        \right\}    
+    \]
+    代入数据$k = 7, r = 1, \alpha = 0.05$，得
+    \[
+        \chi_{k-r-1}^{2} (\alpha)
+        = \chi_{7}^{2} (0.05)    
+        = 14.067
+    \]
+    \[
+        Z 
+        = \sum \frac{{(O - \widehat{E})}^2}{\widehat{E}}
+        = 1.8715
+        < 14.067
+        \ \Rightarrow\ 
+        Z \notin W
+    \]
+    故不能拒绝$H_0$，即在显著性水平$\alpha = 0.05$下认为$X$服从几何分布。
 \end{enumerate}
 
 \section{}  %3
-记一班
+有检验
+\[
+    H_0 : p_{ij} = P(X = i) P(Y = j) \ (i=1,\ldots,a;\ j = 1,\ldots,b)
+    \quad \leftrightarrow \quad
+    H_1 : \exists\ i,j\in \mathbb{N}^* , p_{ij} \neq P(X = i) P(Y = j)
+\]
+取检验统计量
+\[
+    Z 
+    = \sum\limits_{i=1}^{a} \sum\limits_{j=1}^{b} \frac{(n\cdot n_{ij} - n_{i.} \cdot n_{.j})}{n\cdot n_{i.} \cdot n_{.j}}    
+    \sim \chi_{(a-1)(b-1)}^{2}
+    \qquad (n\to \infty)
+\]
+拒绝域
+\[
+    W = 
+    \left\{
+        Z > \chi_{(a-1)(b-1)}^2 (\alpha)
+    \right\}    
+\]
+代入数据$a = 6,\ b = 2,\ \alpha = 0.05$，得
+\[
+    \chi^2_{(a-1)(b-1)} (\alpha)
+    = \chi^2_{6} (0.05)
+    = 12.592
+\]
+\[
+    Z 
+    = \sum\limits_{i=1}^{a} \sum\limits_{j=1}^{b} \frac{(n\cdot n_{ij} - n_{i.} \cdot n_{.j})}{n\cdot n_{i.} \cdot n_{.j}}    
+    = 3.1922
+    < 12.592
+    \ \Rightarrow\ 
+    Z \notin W
+\]
+故不能拒绝$H_0$，即在显著性水平$\alpha = 0.05$下认为两个班级的英语水平大致相等。
 
 \end{document}
