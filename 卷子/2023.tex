@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{xeCJK,amsmath,geometry,float,graphicx,amssymb,zhnumber,booktabs,setspace,tasks,verbatim,amsthm,amsfonts,mathdots}
+\usepackage{listings,xcolor,diagbox}
+\usepackage{unicode-math}
+\usepackage{media9}
+\usepackage{multimedia}
+\geometry{a4paper,scale=0.8}  
+\renewcommand\arraystretch{2}
+\title{概统2023}
+\author{PB20000113孔浩宇}
+\begin{document}
+\maketitle
+\subsection*{}
+设两个小孩分别为甲乙，有一个春天出生的男孩是事件A，两个小孩都是男孩为事件B。
+每个小孩的可能有春/夏/秋/冬,男/女，共8种情况，2个小孩共有$8\times 8 = 64$种情况。
+已知有一个春男（事件A），则有$7\times 7 = 49$种情况不会发生，此时只有$64 - 49 = 15$个基本事件。
+对于事件B，有甲：春男\& 乙：夏秋冬男，乙：春男\& 甲：夏秋冬男， 甲乙都是春男 共7种情况
+\[
+    P(B|A)
+    = \frac{P(AB)}{P(A)}
+    = \frac{7}{15}
+\]
+\end{document}
